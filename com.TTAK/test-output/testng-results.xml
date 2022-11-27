@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-11-26T22:38:45 IST" name="Default suite" finished-at="2022-11-26T22:39:03 IST" duration-ms="18166">
+    <groups>
+    </groups>
+    <test started-at="2022-11-26T22:38:45 IST" name="Default test" finished-at="2022-11-26T22:39:03 IST" duration-ms="18166">
+      <class name="stateSecretaryExecutePageClass.ExecuteLoginPageTestClass">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:stateSecretaryExecutePageClass.ExecuteLoginPageTestClass@1ab3a8c8]" started-at="2022-11-26T22:38:45 IST" name="beforeMethod" finished-at="2022-11-26T22:38:55 IST" duration-ms="9878" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="verifyLoginwithValidUserNameAndValidPassword()[pri:0, instance:stateSecretaryExecutePageClass.ExecuteLoginPageTestClass@1ab3a8c8]" started-at="2022-11-26T22:38:55 IST" name="verifyLoginwithValidUserNameAndValidPassword" finished-at="2022-11-26T22:39:03 IST" duration-ms="8192" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginwithValidUserNameAndValidPassword -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:stateSecretaryExecutePageClass.ExecuteLoginPageTestClass@1ab3a8c8]" started-at="2022-11-26T22:39:03 IST" name="afterMethod" finished-at="2022-11-26T22:39:03 IST" duration-ms="8" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyLoginwithValidUserNameAndValidPassword status=SUCCESS method=ExecuteLoginPageTestClass.verifyLoginwithValidUserNameAndValidPassword()[pri:0, instance:stateSecretaryExecutePageClass.ExecuteLoginPageTestClass@1ab3a8c8] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- stateSecretaryExecutePageClass.ExecuteLoginPageTestClass -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
