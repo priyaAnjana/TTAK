@@ -5,52 +5,77 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import org.apache.commons.compress.archivers.dump.InvalidFormatException;
+import org.apache.poi.ss.formula.constant.ConstantValueParser;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-public class ExcelWriteClass {
-
-	public static FileInputStream f;
-	public static XSSFWorkbook b; 
-	public static XSSFSheet s;
-	public static FileOutputStream fos ;
-//
-//	public void writeExcel(String sheetName,String cellValue,int row,int col) throws IOException {
-//
-//		String path =System.getProperty("user.dir")+"\\src\\main\\resources\\SMARTTestData.xlsx"; 
-//		File file = new File(path);
-//		FileInputStream fs= new FileInputStream(file);
-//		XSSFWorkbook wb = new XSSFWorkbook();
-//		XSSFSheet sheet = wb.getSheet(sheetName);
-//		sheet.getRow(row).createCell(col).setCellValue(cellValue);
-//		FileOutputStream fos = new FileOutputStream(new File(path));
-//		wb.write(fos);
-//		wb.close();
-//	}
-	public static  void writeExcel( int i, int j) throws IOException {
-		f = new FileInputStream("E:\\SMART_AUTOMATION\\SMART_TTAK\\com.TTAK\\src\\main\\resources\\SMARTTestData.xlsx");
-		b = new XSSFWorkbook(f);
-		s = b.getSheet("sheet1");
-		Row r = s.getRow(i);
-		Cell c= r.getCell(j);
-		//s.getRow(i).createCell(j).setCellValue(cellValue);
-		FileOutputStream fos = new FileOutputStream(new File("E:\\SMART_AUTOMATION\\SMART_TTAK\\com.TTAK\\src\\main\\resources\\SMARTTestData.xlsx"));
-		b.write(fos);
-		b.close();
-		//return c.getStringCellValue();
-		
-		
-	}
-}
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebDriver;
 
 
 
+public class ExcelWriteClass 
+{
+	public static Platform platform;
+	
+	//Location of Test data excel file
+    public static String testDataExcelPath = null;
+public static String File_TestData ="SMARTTTAK_TestCases.xlsx";
+public static String excelPath=System.getProperty("user.dir")+"\\src\\main\\resources\\TTAKSMARTTestData.xlsx";
+
+    //Excel WorkBook
+    private static XSSFWorkbook excelWBook;
+
+    //Excel Sheet
+    private static XSSFSheet excelWSheet;
+
+    //Excel cell
+    private static XSSFCell cell;
+
+    //Excel row
+    private static XSSFRow row;
+
+    
+
+    //This method gets excel file, row and column number and set a value to the that cell.
+    public static String setCellData(String value, int RowNum, int ColNum) throws Exception {
+        
+        	  FileInputStream ExcelFile = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\resources\\TTAKSMARTTestData.xlsx");
+              excelWBook = new XSSFWorkbook(ExcelFile);
+              excelWSheet = excelWBook.getSheet("Sheet1");
+              Row row = excelWSheet.getRow(RowNum);
+  			Cell cell= row.getCell(ColNum);
+                DataFormatter formatter = new DataFormatter();
+                String cellData = formatter.formatCellValue(cell);
+                if (cell == null) {
+                    cell = row.createCell(ColNum);
+                    cell.setCellValue(value);
+                } else {
+                	
+                    cell.setCellValue(value);
+                }
+                          
+           FileOutputStream fileOut = new FileOutputStream(System.getProperty("user.dir")+"\\src\\main\\resources\\TTAKSMARTTestData.xlsx");
+            excelWBook.write(fileOut);
+
+          
+            fileOut.close();
+            return cell.getStringCellValue();
+       
+        }
+    }
+
+
+  
+
+
+
+        
+    
 
 
 

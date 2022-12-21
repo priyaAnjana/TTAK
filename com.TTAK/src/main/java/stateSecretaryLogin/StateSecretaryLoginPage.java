@@ -46,7 +46,8 @@ public class StateSecretaryLoginPage {
 	@FindBy(id = "adminerror") // invalid login alert msg locator 
 	WebElement alertMsg;
 	
-	
+	@FindBy(id = "ModuleTitle") // dashboard locator
+	WebElement dashBoard; 
 
 	public void clickOnSecretaryLogin() // method to click on Secretary Login 
 	{
@@ -80,29 +81,39 @@ public class StateSecretaryLoginPage {
 	
 	public boolean alertMsg()  // method to whether the alert message showing or not
 	{
-		return gl.alertMsg(alertMsg);
+		return gl.isDisplayedMethod(alertMsg);
 	}
 	
 	public String readData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readStringData(r, c);
 	}
-//	public String readPassword(int r, int c) throws IOException // method to read password from excel sheet
-//	{
-//		return erc.readStringData(r, c);
-//	}
-//	
-//	public String readAppliationUrl(int r,int c) throws IOException // method to read application url form excel sheet.
-//	
-//	{
-//		return erc.readStringData(r, c);
-//	}
-//	
+	public String readIntegerData(int r, int c) throws IOException // method to read user name from excel sheet
+	{
+		return erc.readIntegerData(r, c);
+	}
 	
-	public void waitAdmin()
+	public void waitAdmin()// wait for admin text
 	{
 		ew.waitElementToBEClickable(driver, actualUser);
 	}
+	
+	public String getText() // method to get dashboard text
+	{
+		return gl.getText(dashBoard);
+	}
+
+	public void waitForDashBoardText()// wait for dashboard text
+	{
+		ew.waitElementToBEClickable(driver, dashBoard);
+	}
+	
+	public void waitsForUserName()
+	{
+		ew.waitVisibilityOfElementLocated(driver, userName);
+	}
+	
+	
 }
 
 

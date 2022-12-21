@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="stateSecretaryExecutePageClass.ExecuteDashBoardTestClass">
+      <class name="stateSecretaryExecutePageClass.ExecuteLoginPageTestClass">
         <methods>
           <include name="afterMethod"/>
-          <include name="verifyDashBoardPageVisibleOrNot"/>
+          <include name="verifyLoginPageIsVisibleWhileLaunchingTheApplication"/>
+          <include name="createReport"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- stateSecretaryExecutePageClass.ExecuteDashBoardTestClass -->
+      </class> <!-- stateSecretaryExecutePageClass.ExecuteLoginPageTestClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
