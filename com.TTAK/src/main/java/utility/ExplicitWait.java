@@ -22,7 +22,7 @@ public class ExplicitWait {
 
 	public void waitPresenceOfElementLocated(WebDriver driver,String locator)
 	{
-		w=new WebDriverWait(driver, Duration.ofSeconds(100));
+		w=new WebDriverWait(driver, Duration.ofSeconds(30));
 		w.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(locator)));
 	}
 
@@ -34,7 +34,7 @@ public class ExplicitWait {
 
 	public void waitElementToBEClickable(WebDriver driver,WebElement element)
 	{
-		w= new WebDriverWait(driver,Duration.ofSeconds(100));
+		w= new WebDriverWait(driver,Duration.ofSeconds(30));
 		w.until(ExpectedConditions.elementToBeClickable(element));
 
 

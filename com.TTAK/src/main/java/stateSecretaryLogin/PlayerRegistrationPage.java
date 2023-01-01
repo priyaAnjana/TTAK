@@ -206,6 +206,9 @@ public class PlayerRegistrationPage {
 
 	@FindBy(xpath="//p[text()='Successfully Deleted']")// Successfully deleted alert text locater
 	WebElement successfullyDeletedAlertText;
+	
+	@FindBy(xpath = "//a[@class='logout-btn']")
+	WebElement logOutButton;
 
 	public void clickOnProcessElement() // method to click process menu
 	{
@@ -251,7 +254,7 @@ public class PlayerRegistrationPage {
 
 	public void clickEnterOnGenderDropDown()
 	{
-		gl.clikEnterkeys(genderDropDownTextField);
+		gl.clickEnterkeys(genderDropDownTextField);
 	}
 
 	// method to click date of birth date picker
@@ -297,7 +300,7 @@ public class PlayerRegistrationPage {
 	// method to click enter keys 
 	public void clickEnterOnStatus()
 	{
-		gl.clikEnterkeys(statusTextField);
+		gl.clickEnterkeys(statusTextField);
 	}
 
 	// method to click on player image
@@ -334,7 +337,7 @@ public class PlayerRegistrationPage {
 	// method to click enter button
 	public void clickEnterOnBloodGroup()
 	{
-		gl.clikEnterkeys(bloodGroupTextFieldDropDown);
+		gl.clickEnterkeys(bloodGroupTextFieldDropDown);
 	}
 	// method to enter ttfi id 
 
@@ -389,7 +392,7 @@ public class PlayerRegistrationPage {
 	// method to click enter
 	public void clickEnterOnDistrict()
 	{
-		gl.clikEnterkeys(districtTextFieldDropDown);
+		gl.clickEnterkeys(districtTextFieldDropDown);
 	}
 
 	// method to enter place of birth
@@ -412,7 +415,7 @@ public class PlayerRegistrationPage {
 	}
 	public void clickEnterOnClub1()
 	{
-		gl.clikEnterkeys(club1TextField);
+		gl.clickEnterkeys(club1TextField);
 	}
 
 	public void clickOnClub2DropDown()
@@ -425,7 +428,7 @@ public class PlayerRegistrationPage {
 	}
 	public void clickEnterOnClub2()
 	{
-		gl.clikEnterkeys(club2TextField);
+		gl.clickEnterkeys(club2TextField);
 	}
 
 	// method to enter institution name
@@ -501,7 +504,7 @@ public class PlayerRegistrationPage {
 	}
 	public void clickEntertoDocumentsType()
 	{
-		gl.clikEnterkeys(documentsTypeDropDownTextField);
+		gl.clickEnterkeys(documentsTypeDropDownTextField);
 	}
 
 	// method to click on file upload 
@@ -568,7 +571,7 @@ public class PlayerRegistrationPage {
 
 	public void clickEnterKey()
 	{
-		gl.clikEnterkeys(playerNameSearchField);
+		gl.clickEnterkeys(playerNameSearchField);
 	}
 
 	public void ClickOnEditButton()
@@ -668,6 +671,11 @@ public class PlayerRegistrationPage {
 	public boolean isDisplayedsuccessfullyDeletedalertText()
 	{
 		return gl.isDisplayedMethod(successfullyDeletedAlertText);
+	}
+	
+	public void clickOnLogOutButton()
+	{
+		gl.clickElement(logOutButton);
 	}
 }
 

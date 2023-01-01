@@ -6,6 +6,8 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.apache.commons.math3.ode.events.EventHandler.Action;
 import org.openqa.selenium.JavascriptExecutor;
@@ -37,10 +39,7 @@ public class GeneralUtilities {
 		return driver.getCurrentUrl();
 	}
 
-//	public boolean alertMsg(WebElement element) // method to check  whether the alert message showing or not
-//	{
-//		return  element.isDisplayed();
-//	}
+
 
 
 	// method to select value from a drop down
@@ -111,12 +110,12 @@ public class GeneralUtilities {
 	{
 		driver.switchTo().defaultContent();
 	}
-	public void actionClassToClikEnter(WebDriver driver )
+	public void actionClassToClikEnter(WebDriver driver,WebElement element )
 	{
 		Actions action = new Actions(driver);
-		action.sendKeys( Keys.ENTER);
+		action.click(element).build().perform();
 	}
-	public void clikEnterkeys(WebElement element)
+	public void clickEnterkeys(WebElement element)
 	{
 		element.sendKeys(Keys.ENTER);
 	}
@@ -128,8 +127,17 @@ public class GeneralUtilities {
 	{
 		element.clear();
 	}
+	
+	public void selectClass(WebElement element,String text)
+	{
+		Select select = new Select(element);
+		select.selectByVisibleText(text);
+	}
+	
+	
+	
+	}
 
-}
 
 
 

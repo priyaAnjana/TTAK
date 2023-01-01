@@ -45,9 +45,9 @@ public class BaseClas {
 		  extentReport.ExtentManager.createInstance().createTest(testContext.getName(), "message");
 	  }
 	
-	@BeforeMethod
+//	@BeforeMethod
 
-	public  void beforeMethod() throws IOException {
+	public  void setUp() throws IOException {
 		readProperty();
 //		System.setProperty(property.getProperty("ChromeSystemProperty"), System.getProperty("user.dir")+property.getProperty("ChromeDriverPath"));// chrome driver path
 //		driver= new ChromeDriver();// webdriver object creation
@@ -61,19 +61,19 @@ public class BaseClas {
 	
 	
 
-	@AfterMethod
+//	@AfterMethod
+//
+//	public void afterMethod(ITestResult itr) throws IOException {
+//
+//		if(itr.getStatus() == ITestResult.FAILURE)
+//		{
+//			sh = new ScreenShotClass();
+//			sh.takeScreenShot(driver, itr.getName());
+//		}
 
-	public void afterMethod(ITestResult itr) throws IOException {
-
-		if(itr.getStatus() == ITestResult.FAILURE)
-		{
-			sh = new ScreenShotClass();
-			sh.takeScreenShot(driver, itr.getName());
-		}
-
-		driver.close();
+//		driver.close();
 	}
 
-}
+//}
 
 

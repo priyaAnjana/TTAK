@@ -9,6 +9,7 @@ import java.util.Date;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -39,7 +40,8 @@ public class ExcelReadClass {
 			s = b.getSheet("sheet1");
 			Row r = s.getRow(i);
 			Cell c= r.getCell(j);
-			
+			 DataFormatter formatter = new DataFormatter();
+             String cellData = formatter.formatCellValue(c);
 			return c.getStringCellValue();
 			
 			

@@ -4,16 +4,17 @@
   <listeners>
     <listener class-name="extentReport.TestListener"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="State Secretary Player registration page(failed)">
     <classes>
-      <class name="stateSecretaryExecutePageClass.ExecuteLoginPageTestClass">
+      <class name="stateSecretaryExecutePageClass.PlayerRegistrationExecuteTestClass">
         <methods>
           <include name="afterMethod"/>
-          <include name="verifyLoginPageIsVisibleWhileLaunchingTheApplication"/>
+          <include name="verifyWhetherTheSecretaryCanEditSavedPlayer"/>
+          <include name="verifyWhetherTheSecretaryCanDeleteSavedPlayer"/>
           <include name="createReport"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- stateSecretaryExecutePageClass.ExecuteLoginPageTestClass -->
+      </class> <!-- stateSecretaryExecutePageClass.PlayerRegistrationExecuteTestClass -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- State Secretary Player registration page(failed) -->
 </suite> <!-- Failed suite [Suite] -->

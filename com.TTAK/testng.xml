@@ -2,23 +2,86 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 
-<listeners>
+	<listeners>
 
-<listener class-name="extentReport.TestListener"></listener>
+		<listener class-name="extentReport.TestListener"></listener>
 
-</listeners>
+	</listeners>
 
-  <test thread-count="5" name="Test">
-    <classes>
-   
+	<test name="Login">
+		<classes>
 
-      <class name="stateSecretaryExecutePageClass.ExecuteLoginPageTestClass"/>
-      <class name="stateSecretaryExecutePageClass.ExeutePlayerRegistrationTestClass"></class>
-   
-      
-     
-    </classes>
-  </test> <!-- Test -->
+			<class name="clubExecutePageClass.ClubLoginPageExecuteTestClass"></class>
+			<class name="districtSecretaryExecutePageClass.DistrictSecretaryLoginPageExecuteTestClass"></class>
+			<class name="stateSecretaryExecutePageClass.LoginPageExecuteTestClass" />
+		</classes>
+	</test> <!-- Test -->
+	
+	<test name=" Approval 1">
+		<classes>
+			<class name="homePageExecutePageClass.playerSelfRegistrationExecuteTestClass"></class>
+
+			<class name="clubExecutePageClass.PlayerApprovalPageExecuteTestClass">
+				<methods>
+					<include name="verifyWithClickOnMoreInfoButton"></include>
+					<include name="verifyWithSelfRegisteredPlayerApproval"></include>
+				</methods>
+			</class>
+
+			<class name="districtSecretaryExecutePageClass.PlayerApprovalPageExecuteTestClass">
+				<methods>
+					<include name="verifywithMoreInfoButton"></include>
+					<include name="verifywithSelfRegistredPlayerApproval"></include>
+
+				</methods>
+			</class>
+			<class name="stateSecretaryExecutePageClass.PlayerApprovalExecuteTestClass">
+				<methods>
+					<include name="verifyWithSelfRegisterdMoreInfo"></include>
+					<include name="verifyWithSelfRegisterdPlayerApproval"></include>
+
+				</methods>
+			</class>
+		</classes>
+
+	</test> <!-- Test -->
+	
+	<test name="Approval 2">
+		<classes>
+			<class name="clubExecutePageClass.PlayerRegistrationPageExecuteTestClass"></class>
+
+			<class name="districtSecretaryExecutePageClass.PlayerApprovalPageExecuteTestClass">
+				<methods>
+					<include name="verifywithClubRegistredPlayerApproval"></include>
+
+				</methods>
+			</class>
+			<class name="stateSecretaryExecutePageClass.PlayerApprovalExecuteTestClass">
+				<methods>
+					<include name="verifyWithClubRegisterdPlayerApproval"></include>
+
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	
+	<test name="Approval 3">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.PlayerRegistrationExecuteTestClass"></class>
+
+			<class name="stateSecretaryExecutePageClass.PlayerApprovalExecuteTestClass">
+				<methods>
+					<include name="verifyWithDistrictSecretaryRegisterdPlayerApproval"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="State Secretary Player registration page">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.PlayerRegistrationExecuteTestClass"></class>
+		</classes>
+	</test>
+	
+	
 </suite> <!-- Suite -->
-
-
