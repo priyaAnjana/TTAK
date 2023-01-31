@@ -61,8 +61,7 @@ public class ClubApprovalPage
 	public String readData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readStringData(r, c);
-	}
-	
+	}	
 	
 	public void threadSleep() throws InterruptedException
 	{
@@ -77,8 +76,7 @@ public class ClubApprovalPage
 	public void clickOnClubApproval()
 	{
 		gl.clickElement(clubApproval);
-	}
-	
+	}	
 	
 	public void iframe()// method to switch to iframe
 	{
@@ -88,6 +86,11 @@ public class ClubApprovalPage
 	public void enterClubName(String name)
 	{
 		gl.typeText(clubNameField, name);
+	}
+	
+	public void EnterKeyOnClubNameFied()
+	{
+		gl.clickEnterkeys(clubNameField);
 	}
 	
 	public void clickOnCheckBox()
@@ -109,18 +112,23 @@ public class ClubApprovalPage
 	{
 		gl.clickElement(yesButton);
 	}
+	
 	public boolean appovedSuccessFulPopUpMsg()
 	{
 		return gl.isDisplayedMethod(approvedSuccessPopUpMsg);
 	}
+	
 	public void clickOnPopUpOkButton()
 	{
 		gl.clickElement(popUpOkButton);
 	}
+	
 	public void clickOnLogOutButton()
 	{
 		gl.clickElement(logOutButton);
 	}
+	
+
 
 	
 }

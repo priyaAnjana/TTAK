@@ -28,6 +28,7 @@ public class DistrictSecretaryLoginPage
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
+	
 	@FindBy(xpath="//i[text()='  Club/Secretary Login ']")  // Secretary Login locator
 	WebElement districtLogin;
 
@@ -51,10 +52,12 @@ public class DistrictSecretaryLoginPage
 	{
 		return erc.readStringData(r, c);
 	}
+	
 	public String readIntegerData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readIntegerData(r, c);
 	}
+	
 	public void clickOnSecretaryLogin() // method to click on Secretary Login 
 	{
 		gl.clickElement(districtLogin);

@@ -16,10 +16,11 @@ public class ClubSelfRegistration
 
 {
 	WebDriver driver;
+	
 	GeneralUtilities gl= new GeneralUtilities();
-
-
+	
 	ExcelReadClass erc = new ExcelReadClass();
+	
 	ExplicitWait ew = new ExplicitWait();
 
 	public ClubSelfRegistration(WebDriver driver)
@@ -49,16 +50,16 @@ public class ClubSelfRegistration
 	@FindBy(id = "txtemail")
 	WebElement emailId;
 	
-	@FindBy(xpath = "//*[@id=\"txtphoneno\"]")
+	@FindBy(id = "txtphoneno")
 	WebElement phNum;
 	
 	@FindBy(xpath = "//input[@id='customFile']")
 	WebElement uploadDocument;
 	
-	@FindBy(id = "playerimg")
+	@FindBy(xpath = "//*[@id=\"playerimg\"]	")
 	WebElement playerImage;
 	
-	@FindBy(id = "btnSave")
+	@FindBy(xpath = "//button[@id='btnSave']")
 	WebElement registerButton;
 	
 	@FindBy(xpath = "//h2[text()='Club Registration']")
@@ -71,6 +72,7 @@ public class ClubSelfRegistration
 	{
 		return erc.readStringData(r, c);
 	}
+	
 	public String readIntegerData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readIntegerData(r, c);
@@ -88,7 +90,7 @@ public class ClubSelfRegistration
 	
 	public void selectValueFromTypeOfClubDropDown(String value)
 	{
-		gl.selectClass(typeOfClub, value);
+		gl.selectClassByVisibleText(typeOfClub, value);
 	}
 	
 	public void enterClubName(String name)
@@ -103,7 +105,7 @@ public class ClubSelfRegistration
 	
 	public void selectValueFromDistrictDropDown(String dis)
 	{
-		gl.selectClass(district, dis);
+		gl.selectClassByVisibleText(district, dis);
 	}
 	
 	public void enterAuthorizedPerson(String name)
@@ -138,17 +140,24 @@ public class ClubSelfRegistration
 	
 	public void uploadDocument(String path) throws AWTException
 	{
-		gl.robortCalssForFileUploading(path);
+		gl.robotCalssForFileUploading(path);
+	}
+	
+	public void SrollToImage()
+	{
+		gl.javaScriptEecutorForSrolling(driver, playerImage);
 	}
 	
 	public void clickOnPlayerImage()
 	{
-		gl.actionClassToClikEnter(driver, playerImage);
+		
+	gl.javaScriptExecutorForClick(driver,playerImage);
+
 	}
 	
 	public void uploadPlayerImage(String path) throws AWTException
 	{
-		gl.robortCalssForFileUploading(path);
+		gl.robotCalssForFileUploading(path);
 	}
 	
 	public void clickOnRegisterButton()

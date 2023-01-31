@@ -15,9 +15,9 @@
 			<class name="districtSecretaryExecutePageClass.DistrictSecretaryLoginPageExecuteTestClass"></class>
 			<class name="stateSecretaryExecutePageClass.LoginPageExecuteTestClass" />
 		</classes>
-	</test> <!-- Test -->
-	
-	<test name=" Approval 1">
+	</test> 
+
+	<!-- <test name=" Approval 1">
 		<classes>
 			<class name="homePageExecutePageClass.playerSelfRegistrationExecuteTestClass"></class>
 
@@ -44,8 +44,8 @@
 			</class>
 		</classes>
 
-	</test> <!-- Test -->
-	
+	</test>
+
 	<test name="Approval 2">
 		<classes>
 			<class name="clubExecutePageClass.PlayerRegistrationPageExecuteTestClass"></class>
@@ -63,8 +63,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> <!-- Test -->
-	
+	</test>
+
 	<test name="Approval 3">
 		<classes>
 			<class name="districtSecretaryExecutePageClass.PlayerRegistrationExecuteTestClass"></class>
@@ -81,7 +81,377 @@
 		<classes>
 			<class name="stateSecretaryExecutePageClass.PlayerRegistrationExecuteTestClass"></class>
 		</classes>
+	</test> 
+	<test name="Club- District Secretary approval ">
+			<classes>
+			<class name="homePageExecutePageClass.ClubSelfRegistrationExecuteTestClass">
+				<methods>
+					<include name="verifyWithClubCanDoSelfRegistration"></include>
+				</methods>
+			</class>
+			<class name="districtSecretaryExecutePageClass.ClubApprovalPageExecuteTestClass"></class>
+		</classes>
 	</test>
-	
-	
+	 <test name="Club -State Secretary Approval">
+		<classes>
+			<class name="homePageExecutePageClass.ClubSelfRegistrationExecuteTestClass">
+				<methods>
+					<include name="clubRegistrationForSateSecretaryApproval"></include>
+				</methods>
+			</class>
+			<class name="stateSecretaryExecutePageClass.ClubApprovalExecuteTestClass"></class>
+		</classes>
+	</test>
+	<test name="District Secretary Club Master">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.ClubMasterPageExecuteTestClass"></class>
+		</classes>
+	</test>
+
+	<test name="State Secretary Club Master">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.ClubMasterExecuteTestClass"></class>
+		</classes>
+	</test>
+
+	<test name="State Secretary -Tournament Type Master">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.TournamentTypeMasterExecuteTestClass"></class>
+		</classes>
+	</test>
+
+	<test name="State Secretary -Event Category Master">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.EventCategoryExecuteTestClass"></class>
+		</classes>
+	</test>
+
+	<test name="State Secretary -Tournament Master">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.TournamentMasterExecuteTestClass"></class>
+		</classes>
+	</test>
+
+	<test name="State Secretary - Tournament Entry">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.TournamentEntryExecuteTestClass"></class>
+		</classes>
+	</test>
+
+	<test name="Club Login - State Level Single Tournament Entry">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoStateLevelSinglesTournamentsEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="District Secretary - State Level Single Tournament Approval">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerifySingelsStateLevelTournamentApprovalThatEnrollByAClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - State Level Doubles Tournament Entry Partner within the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoStateLevelDoublesTournamentsPartnerWithinTheClubEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="District Secretary - State Level Doubles Tournament Approval Partner within the club">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyWithinTheClubDoublesStateLevelTournamentApprovalThatEnrollByAClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Club Login -State Level Doubles Tournament Entry Partner Outside the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoStateLevelDoublesPartnerOutsideClubTournamentsEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="District Secretary - State Level Doubles Tournament Approval Partner Outside the club">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyPartnerOutsideDoublesClubStateLevelApprovalThatEnrollByAClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - State Level Mixed Doubles Tournament Entry partner within the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyStateLevelMixedDoublesWithinTheClubTournamentsEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="District Secretary - State Level Mixed Doubles Tournament Approval Partner within the Club">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerifywithinTheClubMixedDoublesStateLevelTournamentApprovalThatEnrollByAClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Club Login - State Level Mixed Doubles Tournament Entry partner outside the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyOutSideClubStateLevelMixedDoublesOutsideClubEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="District Secretary - State Level Mixed Doubles Tournament Approval Partner Outside the Club">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyOutSideTheClubMixedDoublesStateLevelTournamentApprovalThatEnrollByAClub"></include>
+				</methods>
+			</class>
+		</classes>
+
+	</test>
+	<test name="Club Login - District Level Singles Tournament Entry">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoDistrictLevelSinglesTournamentsEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="District Secretary - District Level Singles Tournament Approval">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerifySingelsDistrictLevelTournamentApprovalThatEnrollByAClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Club Login - District Level Doubles Tournament Entry Partner within the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoDistrictLevelDoublesTournamentsPartnerWithinTheClubEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="District Secretary - District Level Doubles Tournament Approval Partner within the club">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyPartnerwithinTheClubDoublesDistrictLevelTournamentApprovalThatEnrollByAClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Club Login - District Level Doubles Tournament Entry Partner outside the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoDistrictLevelDoublesTournamentsPartnerOutSideTheClubEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="District Secretary - District Level Doubles Tournament Approval Partner outside the club">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyPartnerOutsideTheClubDoublesDistrictLevelTournamentApprovalThatEnrollByAClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - District Level Mixed Doubles Tournament Entry within the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoMixedDoublesDistrictLevelTournamentpartnerWithinTheClubEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="District Secretary - District Level Mixed Doubles Tournament Approval Partner within the club">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyPartnerwithinTheClubMixedDoublesDistrictLevelTournamentApprovalThatEnrollByAClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - District Level Mixed Doubles Tournament Entry outside the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoMixedDoublesDistrictLevelTournamentpartnerWithinTheClubPartnerOutSideTheClubEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="District Secretary - District Level Mixed Doubles Tournament Approval Partner Outside the club">
+		<classes>
+			<class name="districtSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyPartnerOutsideTheClubMixedDoublesDistrictLevelTournamentApprovalThatEnrollByAClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - National Level Singles Tournament Entry">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoNationalLevelSinglesTournamentEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="State Secretary Login - National Level Singles Tournament Approval">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerfyStateScretaryCanDoSinglesNationalLevelTournamentApprovalThatEnrollByClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - National Level Doubles Tournament Entry Partner within the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoNationalLevelDoublesTournamentsWithinTheClubEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="State Secretary Login - National Level Doubles Tournament Approval Partner within the club">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerfyStateScretaryCanDoDoublesNationalLevelPartnerWithinTheClubTournamentApprovalThatEnrollByClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - National Level Doubles Tournament Entry Partner outside the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoNationalLevelDoublesTournamentsOutSideTheClubEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="State Secretary Login - National Level Doubles Tournament Approval Partner outside the club">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerfyStateScretaryCanDoDoublesNationalLevelPartnerOutsideTheClubTournamentApprovalThatEnrollByClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - National Level Doubles Tournament Entry Partner outside Kerala">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoNationalLevelDoublesTournamentsOutSideTheKeralaEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="State Secretary Login - National Level Doubles Tournament Approval Partner outside Kerala">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerfyStateScretaryCanDoDoublesNationalLevelPartnerOutsideKeralaTournamentApprovalThatEnrollByClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - National Level Mixed Doubles Tournament Entry Partner within the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoNationalLevelMixedDoublesTournamentsWithinTheClubEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="State Secretary Login - National Level Mixed Doubles Tournament Approval within the club">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerfyStateScretaryCanDoWithinClubMixedDoublesNationalLevelTournamentApprovalThatEnrollByClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - National Level Mixed Doubles Tournament Entry Partner outside the club">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoNationalLevelMixedDoublesTournamentsOutsideTheClubEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="State Secretary Login - National Level Mixed Doubles Tournament Approval outside the club">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+				<methods>
+					<include name="toVerfyStateScretaryCanDoOutSideClubMixedDoublesNationalLevelTournamentApprovalThatEnrollByClub"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Club Login - National Level Mixed Doubles Tournament Entry Partner outside Kerala">
+		<classes>
+			<class name="clubExecutePageClass.TournamentEntryPageExecuteTestClass">
+				<methods>
+					<include name="toVerifyClubCanDoNationalLevelMixedDoublesTournamentsOutsideKeralaEnrolment"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="State Secretary Login - National Level Mixed Doubles Tournament Approval outside Kerala">
+		<classes>
+			<class name="stateSecretaryExecutePageClass.TournamentApprovalPageExecuteTestClass">
+			<methods>
+			<include name="toVerfyStateScretaryCanDoOutSideKeralaMixedDoublesNationalLevelTournamentApprovalThatEnrollByClub"></include>
+			</methods>
+			</class>
+		</classes>
+	</test> -->
+
+
 </suite> <!-- Suite -->

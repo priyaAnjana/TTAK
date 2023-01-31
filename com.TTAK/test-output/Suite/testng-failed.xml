@@ -4,17 +4,42 @@
   <listeners>
     <listener class-name="extentReport.TestListener"/>
   </listeners>
-  <test thread-count="5" name="State Secretary Player registration page(failed)">
+  <test thread-count="5" name="Login(failed)">
     <classes>
-      <class name="stateSecretaryExecutePageClass.PlayerRegistrationExecuteTestClass">
+      <class name="clubExecutePageClass.ClubLoginPageExecuteTestClass">
         <methods>
+          <include name="verifywithInvaliUserNameAndValidPassword"/>
           <include name="afterMethod"/>
-          <include name="verifyWhetherTheSecretaryCanEditSavedPlayer"/>
-          <include name="verifyWhetherTheSecretaryCanDeleteSavedPlayer"/>
-          <include name="createReport"/>
+          <include name="verifySuccessulLogin"/>
+          <include name="verifywithvaliUserNameAndInValidPassword"/>
+          <include name="verifywithInvaliUserNameAndInValidPassword"/>
           <include name="beforeMethod"/>
+          <include name="createReport"/>
         </methods>
-      </class> <!-- stateSecretaryExecutePageClass.PlayerRegistrationExecuteTestClass -->
+      </class> <!-- clubExecutePageClass.ClubLoginPageExecuteTestClass -->
+      <class name="stateSecretaryExecutePageClass.LoginPageExecuteTestClass">
+        <methods>
+          <include name="verifyDashBoardPageVisibleOrNot"/>
+          <include name="verifyLoginwithValidUserNameAndValidPassword"/>
+          <include name="verifyLoginwithValidUsernameandInvalidPassword"/>
+          <include name="afterMethod"/>
+          <include name="verifyLoginWithInvalidUsernameAndValidPassword"/>
+          <include name="beforeMethod"/>
+          <include name="verifyLoginwithInValidUsernameandInvalidPassword"/>
+          <include name="createReport"/>
+        </methods>
+      </class> <!-- stateSecretaryExecutePageClass.LoginPageExecuteTestClass -->
+      <class name="districtSecretaryExecutePageClass.DistrictSecretaryLoginPageExecuteTestClass">
+        <methods>
+          <include name="verifywithValidUserNameAndInValidPassWordfulLogin"/>
+          <include name="beforeMethod"/>
+          <include name="verifywithInValidUserNameAndInValidPassWordfulLogin"/>
+          <include name="afterMethod"/>
+          <include name="verifywithSuccessfulLogin"/>
+          <include name="verifywithInvalidUserNameAndValidPassWordfulLogin"/>
+          <include name="createReport"/>
+        </methods>
+      </class> <!-- districtSecretaryExecutePageClass.DistrictSecretaryLoginPageExecuteTestClass -->
     </classes>
-  </test> <!-- State Secretary Player registration page(failed) -->
+  </test> <!-- Login(failed) -->
 </suite> <!-- Failed suite [Suite] -->

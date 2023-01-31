@@ -22,43 +22,37 @@ import utility.ScreenShotClass;
 public class PlayerRegistrationExecuteTestClass  extends BaseClas{
 
 	StateSecretaryLoginPage ssl;
+	
 	PlayerRegistrationPage prp; // initializing player registration page
+	
 	ExcelWriteClass ewc =new ExcelWriteClass();
+	
 	ScreenShotClass sh;
 	
+	String userDir = System.getProperty("user.dir");
+	
 	@BeforeClass
-
+//login
 	public void login() throws InterruptedException, IOException
 	{
 		setUp();
 		ssl = new StateSecretaryLoginPage(driver);
 		ssl.clickOnSecretaryLogin();
-		Thread.sleep(2000);
+		ssl.threadSleep();
 		ssl.enterUserName(ssl.readData(4, 4));
 		ssl.enterPassword(ssl.readData(4, 5));
 		ssl.clickOnLoginButton();
 		prp = new PlayerRegistrationPage(driver);
-
+		prp.threadSleepWait();
 		prp.clickOnProcessElement(); // click on process menu
 		prp.clickOnPlayerRegistration();// click on player registration
-		//		prp.waitsForFrame();// waits for i frame
-		//		prp.iframe();// calling iframe method
-		//		prp.threadSleepWait(); 
+		
 	}
 
 	@Test(priority = 1)
-	public void verifyWhetherTheSecretaryCanRegisterNewPlayerOrNot() throws Exception {
+	public void verifyWhetherTheSecretaryCanRegisterNewPlayerOrNot() throws Exception 
+	{
 
-		//		ssl = new StateSecretaryLoginPage(driver);
-		//		ssl.clickOnSecretaryLogin();
-		//		Thread.sleep(2000);
-		//		ssl.enterUserName(ssl.readData(4, 4));
-		//		ssl.enterPassword(ssl.readData(4, 5));
-		//		ssl.clickOnLoginButton();
-
-		//		prp = new PlayerRegistrationPage(driver);
-		//		prp.clickOnProcessElement(); // click on process menu
-		//		prp.clickOnPlayerRegistration();// click on player registration
 		prp.waitsForFrame();// waits for i frame
 		prp.iframe();// calling iframe method
 		prp.threadSleepWait(); // waits 
@@ -77,7 +71,7 @@ public class PlayerRegistrationExecuteTestClass  extends BaseClas{
 		prp.clickEnterOnStatus();// click on enter key
 		prp.clickOnPlayerImage();// click on player image
 		prp.threadSleepWait();// waits
-		prp.uploadPlayerImage(ssl.readData(61, 5));// method to upload player image
+		prp.uploadPlayerImage(userDir+ssl.readData(61, 5));// method to upload player image
 		prp.clickOnPersonalTab();// method to click on personal tab
 		prp.clickOnBloodGroupStatusDropDown();// click on blood status DropDown
 		prp.enterbloodGroup(ssl.readData(63, 5));//enter blood group
@@ -113,7 +107,7 @@ public class PlayerRegistrationExecuteTestClass  extends BaseClas{
 		prp.clickEntertoDocumentsType();// click enter key
 		prp.clickOnFileUpload();// method to click file upload icon
 		prp.threadSleepWait();// waits
-		prp.uploadFile(ssl.readData(83, 5));// method to upload documents
+		prp.uploadFile(userDir+ssl.readData(83, 5));// method to upload documents
 		prp.clickOnUpload();// method to click on upload file
 		prp.clickOnSaveButton();// method to click on save button
 		prp.clickOnOfflineButton();// method to click on offline button
@@ -130,21 +124,15 @@ public class PlayerRegistrationExecuteTestClass  extends BaseClas{
 		}
 		// to check test case pass or fail using assertion 
 		Assert.assertTrue(alert);
+		
 		prp.clickOnAlertPopUp();// click ok button
 	}
+	
+	
 	@Test(priority = 2)
 	public void verifyWhetherTheSecretaryCanEditSavedPlayer() throws Exception
 	{
-		//		ssl = new StateSecretaryLoginPage(driver);
-		//		ssl.clickOnSecretaryLogin();
-		//		Thread.sleep(2000);
-		//		ssl.enterUserName(ssl.readData(4, 4));
-		//		ssl.enterPassword(ssl.readData(4, 5));
-		//		ssl.clickOnLoginButton();
-
-		//		prp = new PlayerRegistrationPage(driver);
-		//		prp.clickOnProcessElement(); // click on process menu
-		//		prp.clickOnPlayerRegistration();// click on player registration
+		
 		prp.threadSleepWait();//wait
 		prp.iframe();// calling iframe method
 		prp.clickOnPlayerListButton();// click on Player List Icon
@@ -162,7 +150,7 @@ public class PlayerRegistrationExecuteTestClass  extends BaseClas{
 		prp.enterMotherName(ssl.readData(88, 5));// method to enter mother name
 		prp.clickOnPlayerImage();// click on player image
 		prp.threadSleepWait();// waits
-		prp.uploadPlayerImage(ssl.readData(89, 5));// method to upload player image
+		prp.uploadPlayerImage(userDir+ssl.readData(89, 5));// method to upload player image
 		prp.clickOnPersonalTab();// method to click on personal tab
 		prp.clearResidenceAddress();// clear residence address
 		prp.enterResidenceAddress(ssl.readData(91, 5));// method to enter address
@@ -199,7 +187,7 @@ public class PlayerRegistrationExecuteTestClass  extends BaseClas{
 		prp.clickEntertoDocumentsType();// click enter
 		prp.clickOnFileUpload();// method to click file upload icon
 		prp.threadSleepWait();//waits
-		prp.uploadFile(ssl.readData(104, 5));// method to upload documents
+		prp.uploadFile(userDir+ssl.readData(104, 5));// method to upload documents
 		prp.clickOnUpload();// method to click on upload file
 		prp.clickOnSaveButton();// method to click on save button
 		prp.switchToAlertPopUp(); // method to switch to alert pop up
@@ -224,16 +212,7 @@ public class PlayerRegistrationExecuteTestClass  extends BaseClas{
 	@Test(priority = 3)
 	public void verifyWhetherTheSecretaryCanDeleteSavedPlayer() throws Exception
 	{
-		//		ssl = new StateSecretaryLoginPage(driver);
-		//		ssl.clickOnSecretaryLogin();
-		//		Thread.sleep(2000);
-		//		ssl.enterUserName(ssl.readData(4, 4));
-		//		ssl.enterPassword(ssl.readData(4, 5));
-		//		ssl.clickOnLoginButton();
-
-		//		prp = new PlayerRegistrationPage(driver);
-		//		prp.clickOnProcessElement(); // click on process menu
-		//		prp.clickOnPlayerRegistration();// click on player registration
+		
 		prp.threadSleepWait();//waits
 		prp.iframe();// calling iframe method
 		prp.clickOnPlayerListButton();// click on player list icon
@@ -262,12 +241,12 @@ public class PlayerRegistrationExecuteTestClass  extends BaseClas{
 		Assert.assertTrue(alert);
 
 		prp.clickOnAlertPopUp();// click OK alert pop up
-		prp.clickOnLogOutButton();
+		prp.clickOnLogOutButton();// click log out button
 	}
 
 
 	@AfterClass
-	public void afterMethod()
+	public void afterClass()
 
 	{
 		driver.close();

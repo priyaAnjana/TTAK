@@ -11,7 +11,8 @@ import utility.ExcelReadClass;
 import utility.ExplicitWait;
 import utility.GeneralUtilities;
 
-public class ClubLoginPage {
+public class ClubLoginPage 
+{
 	WebDriver driver;
 
 	GeneralUtilities gl= new GeneralUtilities();
@@ -25,6 +26,8 @@ public class ClubLoginPage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	
 	@FindBy(xpath="//i[text()='  Club/Secretary Login ']")  // Secretary Login locator
 	WebElement clubLogin;
 
@@ -48,10 +51,12 @@ public class ClubLoginPage {
 	{
 		return erc.readStringData(r, c);
 	}
+	
 	public String readIntegerData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readIntegerData(r, c);
 	}
+	
 	public void clickOnClubLogin() // method to click on Secretary Login 
 	{
 		gl.clickElement(clubLogin);
@@ -80,6 +85,11 @@ public class ClubLoginPage {
 	public boolean alertMsg()  // method to whether the alert message showing or not
 	{
 		return gl.isDisplayedMethod(alertMsg);
+	}
+	
+	public void threadSleep() throws InterruptedException
+	{
+		gl.threadSleepWait();
 	}
 	
 	

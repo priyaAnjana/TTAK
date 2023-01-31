@@ -17,10 +17,11 @@ import utility.GeneralUtilities;
 public class PlayerRegistrationPage 
 {
 	WebDriver driver;
+
 	GeneralUtilities gl= new GeneralUtilities();
 
-
 	ExcelReadClass erc = new ExcelReadClass();
+
 	ExplicitWait ew = new ExplicitWait();
 
 	// to mention base class and page class driver are same
@@ -29,8 +30,8 @@ public class PlayerRegistrationPage
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	
+
+
 
 	@FindBy(xpath= "//iframe[@id='framecontent']")
 	WebElement iframe;
@@ -49,11 +50,13 @@ public class PlayerRegistrationPage
 
 	@FindBy(id="txtdob")// date of birth date picker locator
 	WebElement dateOfBirthDatePicker;
+
 	@FindBy(id="txtFatherName")// father name field locator
 	WebElement fatherName;
 
 	@FindBy(id="txtMotherName")// mother name field locator
 	WebElement motherName;
+
 	@FindBy(id="playerimgid")// palyer image locator
 	WebElement playerImage;
 
@@ -80,10 +83,10 @@ public class PlayerRegistrationPage
 
 	@FindBy(id="txtemailid")// email id field locator
 	WebElement emailId;
-	
+
 	@FindBy(id="txtaadharno")// adhar number field locator
 	WebElement adharNumber;
-	
+
 	@FindBy(id="txtbirthplace")// place of birth field locator
 	WebElement placeOfBirth;
 
@@ -140,32 +143,31 @@ public class PlayerRegistrationPage
 
 	@FindBy(xpath = "(//a[@class='btn btn-default'])[1]")// save button locator
 	WebElement saveButton;
-	
+
 	@FindBy(xpath="//iframe[@class='razorpay-checkout-frame']")
 	WebElement iframePaymentGateWay;
 
 	@FindBy(xpath="//input[@id='contact']")
 	WebElement pHNUmberForPayMent;
-	
+
 	@FindBy(xpath="//button[@id='redesign-v15-cta']")
 	WebElement proceedButton;
-	
+
 	@FindBy(xpath="(//div[@class='stack svelte-by96ls horizontal'])[3]")
 	WebElement netBankingPayment;
-	
+
 	@FindBy(xpath="(//label[@class='radio-label mfix'])[1]")
 	WebElement sbiBank;
-	
+
 	@FindBy(xpath="//button[@id='redesign-v15-cta']")
 	WebElement payNowButton;
-	
+
 	@FindBy(xpath = "//button[@class='success']")
 	WebElement successButton;
-	
+
 	@FindBy (xpath = "//span[text()='Players']")
-	WebElement playerText;
-	
-	
+	WebElement playerText;	
+
 	@FindBy(id="btnPlayerList")// player list button locator
 	WebElement playerListButton;
 
@@ -186,26 +188,28 @@ public class PlayerRegistrationPage
 
 	@FindBy(xpath="//table[@id='tblplayerlists']/tbody/tr[2]/td[14]") //updated player delete button located
 	WebElement playerPriyadeleteButton;
-	
+
 	@FindBy(xpath="//p[text()='Successfully Deleted']")// Successfully deleted alert text locater
 	WebElement successfullyDeletedAlertText;
-	
+
 	@FindBy(xpath = "//p[text()='Player details sent successfully for approval']")
 	WebElement successPopUp;
-	
+
 	@FindBy(xpath = "//button[@class='confirm']")
 	WebElement popUpOkButton;
-	
+
+
 	public String readData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readStringData(r, c);
 	}
+
 	public String readIntegerData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readIntegerData(r, c);
 	}
-	
-	
+
+
 	public void iframe()// method to switch to iframe
 	{
 		driver.switchTo().frame(iframe);
@@ -226,7 +230,7 @@ public class PlayerRegistrationPage
 	{
 		gl.typeText(lastName, name);
 	}
-// method to click on gender drop down
+	// method to click on gender drop down
 	public void clickOnGenderDropDown()
 	{
 		gl.clickElement(genderDropDown);
@@ -236,7 +240,7 @@ public class PlayerRegistrationPage
 	{
 		gl.typeText(genderDropDownTextField, value);
 	}
-	
+
 	public void clickEnterOnGenderDropDown()
 	{
 		gl.clickEnterkeys(genderDropDownTextField);
@@ -266,396 +270,398 @@ public class PlayerRegistrationPage
 		gl.typeText(motherName, name);
 	}
 	// method to click on player image
-		public void clickOnPlayerImage()
-		{
-			gl.clickElement(playerImage);
-		}
+	public void clickOnPlayerImage()
+	{
+		gl.clickElement(playerImage);
+	}
 
-		// method to upload player image
-		public void uploadPlayerImage(String image) throws AWTException
-		{
-			gl.robortCalssForFileUploading(image);
-		}
+	// method to upload player image
+	public void uploadPlayerImage(String image) throws AWTException
+	{
+		gl.robotCalssForFileUploading(image);
+	}
 
-		// method click on personal tab
+	// method click on personal tab
 
-		public void clickOnPersonalTab()
-		{
-			gl.clickElement(personalTab);
-		}
+	public void clickOnPersonalTab()
+	{
+		gl.clickElement(personalTab);
+	}
 
-		// method to click blood group status drop down
-		public void clickOnBloodGroupStatusDropDown()
-		{
-			gl.clickElement(bloodGroupDropDown);
-		}
+	// method to click blood group status drop down
+	public void clickOnBloodGroupStatusDropDown()
+	{
+		gl.clickElement(bloodGroupDropDown);
+	}
 
-		// method to enter blood group
-		public void enterbloodGroup(String blood)
-		{
-			gl.typeText(bloodGroupTextFieldDropDown, blood);
-		}
+	// method to enter blood group
+	public void enterbloodGroup(String blood)
+	{
+		gl.typeText(bloodGroupTextFieldDropDown, blood);
+	}
 
-		// method to click enter button
-		public void clickEnterOnBloodGroup()
-		{
-			gl.clickEnterkeys(bloodGroupTextFieldDropDown);
-		}
-		// method to enter ttfi id 
+	// method to click enter button
+	public void clickEnterOnBloodGroup()
+	{
+		gl.clickEnterkeys(bloodGroupTextFieldDropDown);
+	}
+	// method to enter ttfi id 
 
-		public void enterttfiId(String id)
-		{
-			gl.typeText(ttfiId, id);
-		}
-		// method to enter residence address
+	public void enterttfiId(String id)
+	{
+		gl.typeText(ttfiId, id);
+	}
+	// method to enter residence address
 
-		public void enterResidenceAddress(String address)
-		{
-			gl.typeText(residenceAddress, address);
-		}
-		// method to enter contact number 1
+	public void enterResidenceAddress(String address)
+	{
+		gl.typeText(residenceAddress, address);
+	}
+	// method to enter contact number 1
 
-		public void enterContactNumber1(String number)
-		{
-			gl.typeText(contactNumber1, number);
-		}
-		// method to enter contact number 2
+	public void enterContactNumber1(String number)
+	{
+		gl.typeText(contactNumber1, number);
+	}
+	// method to enter contact number 2
 
-		public void enterContactNumber2(String number)
-		{
-			gl.typeText(contactNUmber2, number);
-		}
+	public void enterContactNumber2(String number)
+	{
+		gl.typeText(contactNUmber2, number);
+	}
 
-		// method to enter email id
-		public void enterEmailId(String email)
-		{
-			gl.typeText(emailId, email);
-		}
+	// method to enter email id
+	public void enterEmailId(String email)
+	{
+		gl.typeText(emailId, email);
+	}
 
-		// method to enter adhar number
+	// method to enter adhar number
 
-		public void enterAdharNumber(String number)
-		{
-			gl.typeText(adharNumber, number);
-		}
-		
-		public void enterPlaceOfBirth(String district) 
-		{
-			gl.typeText(placeOfBirth, district);
-		}
-		
-		public void clickOnClub2DropDown()
-		{
-			gl.clickElement(club2);
-		}
-		public void enterClub2(String club2)
-		{
-			gl.typeText(club2TextField, club2);
-		}
-		public void clickEnterOnClub2()
-		{
-			gl.clickEnterkeys(club2TextField);
-		}
+	public void enterAdharNumber(String number)
+	{
+		gl.typeText(adharNumber, number);
+	}
 
-		// method to enter institution name
+	public void enterPlaceOfBirth(String district) 
+	{
+		gl.typeText(placeOfBirth, district);
+	}
 
-		public void enterInstitutionName(String name)
-		{
-			gl.typeText(institutionName, name);
-		}	
-		// method to enter institution address
+	public void clickOnClub2DropDown()
+	{
+		gl.clickElement(club2);
+	}
+	public void enterClub2(String club2)
+	{
+		gl.typeText(club2TextField, club2);
+	}
+	public void clickEnterOnClub2()
+	{
+		gl.clickEnterkeys(club2TextField);
+	}
 
-		public void enterInstitutionAddress(String address)
-		{
-			gl.typeText(institutionAddress, address);
-		}
+	// method to enter institution name
 
-		// method to enter course
+	public void enterInstitutionName(String name)
+	{
+		gl.typeText(institutionName, name);
+	}	
+	// method to enter institution address
 
-		public void enterCourse(String cource)
-		{
-			gl.typeText(course, cource);
-		}
+	public void enterInstitutionAddress(String address)
+	{
+		gl.typeText(institutionAddress, address);
+	}
 
-		// method to enter passport number
+	// method to enter course
 
-		public void enterPassportNumber(String number)
-		{
-			gl.typeText(passportNumber, number);
-		}
-		// method to click on passport date of issue date picker icon
+	public void enterCourse(String cource)
+	{
+		gl.typeText(course, cource);
+	}
 
-		public void clickOnPassportDateOfIssue()
-		{
-			gl.clickElement(passportDateOfIssue);
-		}
-		// method to enter passport date of issue
-		public void enterPassportDateOfIssue(String date)
-		{
-			gl.javascriptExecutorForDatePicker(driver, passportDateOfIssue, date);
-		}
+	// method to enter passport number
 
-		// method to click  passport date valid upto date picker icon
+	public void enterPassportNumber(String number)
+	{
+		gl.typeText(passportNumber, number);
+	}
+	// method to click on passport date of issue date picker icon
 
-		public void clickOnPassportDataValidUpTo()
-		{
-			gl.clickElement(passportDateValiUpTo);
-		}
-		// method to enter passport valid up to
-		public void enterPaasportDateValidUpto(String date)
-		{
-			gl.javascriptExecutorForDatePicker(driver, passportDateValiUpTo, date);
-		}
+	public void clickOnPassportDateOfIssue()
+	{
+		gl.clickElement(passportDateOfIssue);
+	}
+	// method to enter passport date of issue
+	public void enterPassportDateOfIssue(String date)
+	{
+		gl.javascriptExecutorForDatePicker(driver, passportDateOfIssue, date);
+	}
 
+	// method to click  passport date valid upto date picker icon
 
-		// method to enter place of birth
+	public void clickOnPassportDataValidUpTo()
+	{
+		gl.clickElement(passportDateValiUpTo);
+	}
+	// method to enter passport valid up to
+	public void enterPaasportDateValidUpto(String date)
+	{
+		gl.javascriptExecutorForDatePicker(driver, passportDateValiUpTo, date);
+	}
 
-		public void enterPlaceOfIssue(String place)
-		{
-			gl.typeText(placeOfIssue, place);
-		}
-		// method to click on document tab
+	// method to enter place of birth
 
-		public void clickOnDocumentTab()
-		{
-			gl.clickElement(documentsTab);
-		}
-		public void clickOnDocumentsTypeDropDown()
-		{
-			gl.clickElement(documentsTypeDropdown);
-		}
-		public void enterDocument(String doc)
-		{
-			gl.typeText(documentsTypeDropDownTextField, doc);
-		}
-		public void clickEntertoDocumentsType()
-		{
-			gl.clickEnterkeys(documentsTypeDropDownTextField);
-		}
+	public void enterPlaceOfIssue(String place)
+	{
+		gl.typeText(placeOfIssue, place);
+	}
+	// method to click on document tab
 
-		// method to click on file upload 
-
-		public void clickOnFileUpload()
-		{
-			gl.clickElement(fileUpload);
-		}
-		// method to upload documents
-
-		public void uploadFile(String file) throws Exception
-		{
-			gl.robortCalssForFileUploading(file);
-		}
-		// method to click on upload icon
-
-		public void clickOnUpload()
-		{
-			gl.clickElement(uploadButton);
-		}
-		// method to click on save button
-
-		public void clickOnSaveButton()
-		{
-			gl.clickElement(saveButton);
-		}
-		// method to click on offline button
-
-		
+	public void clickOnDocumentTab()
+	{
+		gl.clickElement(documentsTab);
+	}
 	
-		
-		
-		
-		public void clickOnPlayerListButton()
-		{
-			gl.clickElement(playerListButton);
-		}
+	public void clickOnDocumentsTypeDropDown()
+	{
+		gl.clickElement(documentsTypeDropdown);
+	}
+	
+	public void enterDocument(String doc)
+	{
+		gl.typeText(documentsTypeDropDownTextField, doc);
+	}
+	
+	public void clickEntertoDocumentsType()
+	{
+		gl.clickEnterkeys(documentsTypeDropDownTextField);
+	}
 
-		public void enterPlayerNameInSearchField(String name)
-		{
-			gl.typeText(playerNameSearchField, name);
-		}
+	// method to click on file upload 
+
+	public void clickOnFileUpload()
+	{
+		gl.clickElement(fileUpload);
+	}
+	// method to upload documents
+
+	public void uploadFile(String file) throws Exception
+	{
+		gl.robotCalssForFileUploading(file);
+	}
+	// method to click on upload icon
+
+	public void clickOnUpload()
+	{
+		gl.clickElement(uploadButton);
+	}
+	// method to click on save button
+
+	public void clickOnSaveButton()
+	{
+		gl.clickElement(saveButton);
+	}
+	// method to click on offline button
 
 
-		public void clickEnterKey()
-		{
-			gl.clickEnterkeys(playerNameSearchField);
-		}
 
-		public void ClickOnEditButton()
-		{
-			gl.clickElement(editButton);
-		}
-		public void threadSleepWait() throws InterruptedException
-		{
-			gl.threadSleepWait();
-		}
-		public void waitsForFrame()
-		{
-			ew.waitVisibilityOfElementLocated(driver, iframe);
-		}
-		// method to clear first name
-		public void clearFirstName()
-		{
-			gl.clearFields(firstName);
-		}
-		public void clearLastName()
-		{
-			gl.clearFields(lastName);
-		}
 
-		public void clearFatherName()
-		{
-			gl.clearFields(fatherName);
-		}
-		public void clearMotherName()
-		{
-			gl.clearFields(motherName);
-		}
 
-		public void clearResidenceAddress()
-		{
-			gl.clearFields(residenceAddress);
-		}
-		public void clearContactsNo1()
-		{
-			gl.clearFields(contactNumber1);
-		}
-		public void clearContactsNo2()
-		{
-			gl.clearFields(contactNUmber2);
-		}
-		public void clearEmailId()
-		{
-			gl.clearFields(emailId);
-		}
-		public void clearAdharNumber()
-		{
-			gl.clearFields(adharNumber);
-		}
-		public void clearPlaceOfBirth()
-		{
-			gl.clearFields(placeOfBirth);
-		}
-		public void clearInstitutionName()
-		{
-			gl.clearFields(institutionName);
-		}
-		public void clearInstitutionAddress()
-		{
-			gl.clearFields(institutionAddress);
-		}
-		public void clearCourse()
-		{
-			gl.clearFields(course);
-		}
-		public void clearPassportNumber()
-		{
-			gl.clearFields(passportNumber);
-		}
-		public void clearPlaceOfIssue()
-		{
-			gl.clearFields(placeOfIssue);
-		}
-		public void deleteDocument()
-		{
-			gl.clickElement(documentsDeleteButton);
-		}
-		public void clickOnDocumentDeleteYesButton()
-		{
-			gl.clickElement(documentDeleteYesButton);
-		}
-		public void deletePlayerUpdatedPlayer()
-		{
-			gl.clickElement(playerPriyadeleteButton);
-		}
 
-		public boolean issucessfullyUpdatedText()
-		{
-			return gl.isDisplayedMethod(successfullyUpdated);
-		}
+	public void clickOnPlayerListButton()
+	{
+		gl.clickElement(playerListButton);
+	}
 
-		//method to check successfully deleted alert displayed or not
-		public boolean isDisplayedsuccessfullyDeletedalertText()
-		{
-			return gl.isDisplayedMethod(successfullyDeletedAlertText);
-		}
-		
-		public void switchToPayMentGateWay()
-		{
-			gl.iframeHandle(driver,iframePaymentGateWay );
-		}
-		public void enterPhnumberForPayment(String num)
-		{
-			gl.typeText(pHNUmberForPayMent, num);
-		}
-		
-		public void clickOnProceedButton()
-		{
-			gl.clickElement(proceedButton);
-		}
-		public void clickOnNetBankingPayMent()
-		{
-			gl.clickElement(netBankingPayment);
-		}
-		
-		public void clickOnSbiBank()
-		{
-			gl.clickElement(sbiBank);
-		}
-		
-		public void clickOnPayNowButton()
-		{
-			gl.clickElement(payNowButton);
-		}
-		
-		public void multipleWindoHandlingForPayment()
-		{
-			String MainWindow=driver.getWindowHandle();		
-			
-	        // To handle all new opened window.				
-	            Set<String> s1=driver.getWindowHandles();		
-	        Iterator<String> i1=s1.iterator();		
-	        		
-	        while(i1.hasNext())			
-	        {		
-	            String ChildWindow=i1.next();		
-	            		
-	            if(!MainWindow.equalsIgnoreCase(ChildWindow))			
-	            {    		
-	                 
-	                    // Switching to Child window
-	                    driver.switchTo().window(ChildWindow);	                                                                                                           
-	                                 			
-	                    
-	                    gl.clickElement(successButton);		
-	                                 
+	public void enterPlayerNameInSearchField(String name)
+	{
+		gl.typeText(playerNameSearchField, name);
+	}
+
+
+	public void clickEnterKey()
+	{
+		gl.clickEnterkeys(playerNameSearchField);
+	}
+
+	public void ClickOnEditButton()
+	{
+		gl.clickElement(editButton);
+	}
+	public void threadSleepWait() throws InterruptedException
+	{
+		gl.threadSleepWait();
+	}
+	public void waitsForFrame()
+	{
+		ew.waitVisibilityOfElementLocated(driver, iframe);
+	}
+	// method to clear first name
+	public void clearFirstName()
+	{
+		gl.clearFields(firstName);
+	}
+	public void clearLastName()
+	{
+		gl.clearFields(lastName);
+	}
+
+	public void clearFatherName()
+	{
+		gl.clearFields(fatherName);
+	}
+	public void clearMotherName()
+	{
+		gl.clearFields(motherName);
+	}
+
+	public void clearResidenceAddress()
+	{
+		gl.clearFields(residenceAddress);
+	}
+	public void clearContactsNo1()
+	{
+		gl.clearFields(contactNumber1);
+	}
+	public void clearContactsNo2()
+	{
+		gl.clearFields(contactNUmber2);
+	}
+	public void clearEmailId()
+	{
+		gl.clearFields(emailId);
+	}
+	public void clearAdharNumber()
+	{
+		gl.clearFields(adharNumber);
+	}
+	public void clearPlaceOfBirth()
+	{
+		gl.clearFields(placeOfBirth);
+	}
+	public void clearInstitutionName()
+	{
+		gl.clearFields(institutionName);
+	}
+	public void clearInstitutionAddress()
+	{
+		gl.clearFields(institutionAddress);
+	}
+	public void clearCourse()
+	{
+		gl.clearFields(course);
+	}
+	public void clearPassportNumber()
+	{
+		gl.clearFields(passportNumber);
+	}
+	public void clearPlaceOfIssue()
+	{
+		gl.clearFields(placeOfIssue);
+	}
+	public void deleteDocument()
+	{
+		gl.clickElement(documentsDeleteButton);
+	}
+	public void clickOnDocumentDeleteYesButton()
+	{
+		gl.clickElement(documentDeleteYesButton);
+	}
+	public void deletePlayerUpdatedPlayer()
+	{
+		gl.clickElement(playerPriyadeleteButton);
+	}
+
+	public boolean issucessfullyUpdatedText()
+	{
+		return gl.isDisplayedMethod(successfullyUpdated);
+	}
+
+	//method to check successfully deleted alert displayed or not
+	public boolean isDisplayedsuccessfullyDeletedalertText()
+	{
+		return gl.isDisplayedMethod(successfullyDeletedAlertText);
+	}
+
+	public void switchToPayMentGateWay()
+	{
+		gl.iframeHandle(driver,iframePaymentGateWay );
+	}
+	public void enterPhnumberForPayment(String num)
+	{
+		gl.typeText(pHNUmberForPayMent, num);
+	}
+
+	public void clickOnProceedButton()
+	{
+		gl.clickElement(proceedButton);
+	}
+	public void clickOnNetBankingPayMent()
+	{
+		gl.clickElement(netBankingPayment);
+	}
+
+	public void clickOnSbiBank()
+	{
+		gl.clickElement(sbiBank);
+	}
+
+	public void clickOnPayNowButton()
+	{
+		gl.clickElement(payNowButton);
+	}
+
+	public void multipleWindoHandlingForPayment()
+	{
+		String MainWindow=driver.getWindowHandle();		
+
+		// To handle all new opened window.				
+		Set<String> s1=driver.getWindowHandles();		
+		Iterator<String> i1=s1.iterator();		
+
+		while(i1.hasNext())			
+		{		
+			String ChildWindow=i1.next();		
+
+			if(!MainWindow.equalsIgnoreCase(ChildWindow))			
+			{    		
+
+				// Switching to Child window
+				driver.switchTo().window(ChildWindow);	                                                                                                           
+
+
+				gl.clickElement(successButton);		
+
 				// Closing the Child Window.
-//	                        driver.close();		
-	            }		
-	        }		
-	        // Switching to Parent window i.e Main Window.
-	            driver.switchTo().window(MainWindow);				
-	    }
-		
-		public String getUrlOfPlayerRegistrationPage()
-		{
-			return gl.getUrl(driver);
-		}
-		
-		public boolean isDisplayedsuccessPopUp()
-		{
-			return gl.isDisplayedMethod(successPopUp);
-		}
-		
-		public void clickOnPoupOkButton()
-		{
-			gl.clickElement(popUpOkButton);
-		}
-		
-		public void switchToAlertPopUp()
-		{
-			gl.switchToAlertPopup(driver);
-		}
+				//	                        driver.close();		
+			}		
+		}		
+		// Switching to Parent window i.e Main Window.
+		driver.switchTo().window(MainWindow);				
+	}
+
+	public String getUrlOfPlayerRegistrationPage()
+	{
+		return gl.getUrl(driver);
+	}
+
+	public boolean isDisplayedsuccessPopUp()
+	{
+		return gl.isDisplayedMethod(successPopUp);
+	}
+
+	public void clickOnPoupOkButton()
+	{
+		gl.clickElement(popUpOkButton);
+	}
+
+	public void switchToAlertPopUp()
+	{
+		gl.switchToAlertPopup(driver);
+	}
 
 
-	
+
 }

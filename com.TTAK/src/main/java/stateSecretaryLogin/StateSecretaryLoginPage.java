@@ -88,6 +88,7 @@ public class StateSecretaryLoginPage {
 	{
 		return erc.readStringData(r, c);
 	}
+	
 	public String readIntegerData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readIntegerData(r, c);
@@ -108,9 +109,9 @@ public class StateSecretaryLoginPage {
 		ew.waitElementToBEClickable(driver, dashBoard);
 	}
 	
-	public void waitsForUserName()
+	public void threadSleep() throws InterruptedException
 	{
-		ew.waitVisibilityOfElementLocated(driver, userName);
+		gl.threadSleepWait();
 	}
 	
 	

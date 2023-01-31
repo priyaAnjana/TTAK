@@ -15,7 +15,9 @@ import utility.ExcelWriteClass;
 public class ClubApprovalPageExecuteTestClass extends BaseClas
 {
 	ExcelWriteClass ewc =new ExcelWriteClass();
+	
 	DistrictSecretaryLoginPage dsl;
+	
 	ClubApprovalPage cap;
 
 	@BeforeMethod
@@ -24,21 +26,22 @@ public class ClubApprovalPageExecuteTestClass extends BaseClas
 		setUp();
 	}
 
-	@Test
+	@Test(priority = 1)
 	public void verifyDistrictSecretaryCanApproveClubRegistration() throws Exception 
 
 	{
 		dsl = new DistrictSecretaryLoginPage(driver);
 		dsl.clickOnSecretaryLogin();
+		dsl.threadSleepWait();
 		dsl.enterUserName(dsl.readData(108, 4));
 		dsl.enterPassword(dsl.readData(108, 5));
 		dsl.clickOnLoginButton();
 
 		cap=new ClubApprovalPage(driver);
 		cap.clickOnManage();
+		cap.threadSleep();
 		cap.clickOnClubApproval();
 		cap.iframe();
-		
 		cap.clickOnCheckBox();
 		cap.clickOnApproveButton();
 		cap.threadSleep();
@@ -54,6 +57,7 @@ public class ClubApprovalPageExecuteTestClass extends BaseClas
 		 else
 		 {
 			 System.out.println(ewc.setCellData("Fail", 197, 7));
+			
 		 }
 		 
 		 cap.clickOnPopUpOkButton();

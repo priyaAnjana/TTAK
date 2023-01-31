@@ -14,12 +14,14 @@ import utility.ExcelReadClass;
 import utility.ExplicitWait;
 import utility.GeneralUtilities;
 
-public class playerSelfRegistration {
+public class playerSelfRegistration 
+{
 	WebDriver driver;
+	
 	GeneralUtilities gl= new GeneralUtilities();
-
-
+	
 	ExcelReadClass erc = new ExcelReadClass();
+	
 	ExplicitWait ew = new ExplicitWait();
 
 	public playerSelfRegistration(WebDriver driver)
@@ -203,7 +205,7 @@ public class playerSelfRegistration {
 	}
 	public void enterGender(String text)
 	{
-		gl.selectClass(gender, text);
+		gl.selectClassByVisibleText(gender, text);
 	}
 
 	public void clickOnDistrict()
@@ -213,7 +215,7 @@ public class playerSelfRegistration {
 
 	public void enterDistrict(String dis)
 	{
-		gl.selectClass(district, dis);
+		gl.selectClassByVisibleText(district, dis);
 	}
 
 	public void clickOnBloodGroup()
@@ -223,7 +225,7 @@ public class playerSelfRegistration {
 
 	public void enterBloodGroup(String blood)
 	{
-		gl.selectClass(bloodGroup, blood);
+		gl.selectClassByVisibleText(bloodGroup, blood);
 	}
 
 	public void enterTtfiId(String id)
@@ -248,7 +250,7 @@ public class playerSelfRegistration {
 
 	public void enterClub1(String club)
 	{
-		gl.selectClass(club1, club);
+		gl.selectClassByVisibleText(club1, club);
 	}
 
 	public void enterPlaceOfBirth(String place)
@@ -263,7 +265,7 @@ public class playerSelfRegistration {
 
 	public void enterClub2(String club)
 	{
-		gl.selectClass(club2, club);
+		gl.selectClassByVisibleText(club2, club);
 	}
 
 	public void clickOnDocumentsType()
@@ -273,7 +275,7 @@ public class playerSelfRegistration {
 
 	public void enterDocumentsType(String doc)
 	{
-		gl.selectClass(documentType, doc);
+		gl.selectClassByVisibleText(documentType, doc);
 	}
 
 	public void clickOnUploadDocuments()
@@ -284,7 +286,7 @@ public class playerSelfRegistration {
 
 	public void uploadDocuments(String doc) throws AWTException
 	{
-		gl.robortCalssForFileUploading(doc);
+		gl.robotCalssForFileUploading(doc);
 
 	}
 
@@ -340,7 +342,7 @@ public class playerSelfRegistration {
 
 	public void uploadPlayerImage(String image) throws AWTException
 	{
-		gl.robortCalssForFileUploading(image);
+		gl.robotCalssForFileUploading(image);
 	}
 
 	public void explicitWaitForRegsterButton()
@@ -356,18 +358,22 @@ public class playerSelfRegistration {
 	{
 		return erc.readStringData(r, c);
 	}
+	
 	public String readIntegerData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readIntegerData(r, c);
 	}
+	
 	public void threadSleep() throws InterruptedException
 	{
 		gl.threadSleepWait();
 	}
+	
 	public void scrolling()
 	{
 		gl.javaScriptEecutorForSrolling(driver, register);
 	}
+	
 	public void enterphNumberForPayment(String num)
 	{
 		gl.typeText(pHNUmberForPayMent, num);

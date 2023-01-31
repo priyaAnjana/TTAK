@@ -7,7 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.beust.jcommander.Parameter;
 
 import baseClass.BaseClas;
 import homePage.playerSelfRegistration;
@@ -18,7 +21,10 @@ public class playerSelfRegistrationExecuteTestClass extends BaseClas{
 
 
 	playerSelfRegistration psr;
+	
 	ExcelWriteClass ewc =new ExcelWriteClass();
+	
+	String userDir = System.getProperty("user.dir");
 
 	@BeforeMethod
 	public void beforeMethod() throws IOException
@@ -27,7 +33,7 @@ public class playerSelfRegistrationExecuteTestClass extends BaseClas{
 	}
 	
 	
-	@Test
+	@Test(priority = 1 )
 	public void verifyWhetherThePlayersuccessfullyDoTheRegistrationorNot() throws Exception 
 	{
 
@@ -56,7 +62,7 @@ public class playerSelfRegistrationExecuteTestClass extends BaseClas{
 		psr.enterDocumentsType(psr.readData(30, 5));
 		psr.clickOnUploadDocuments();
 		psr.threadSleep();
-		psr.uploadDocuments(psr.readData(31, 5));
+		psr.uploadDocuments(userDir+psr.readData(31, 5));
 		psr.enterName(psr.readData(33, 5));
 		psr.enterInstitutionAddress(psr.readData(34, 5));
 		psr.enterCourse(psr.readData(35, 5));
@@ -67,17 +73,15 @@ public class playerSelfRegistrationExecuteTestClass extends BaseClas{
 
 		psr.clickOnPlayerImage();
 		psr.threadSleep();
-		psr.uploadPlayerImage(psr.readData(41, 5));
+		psr.uploadPlayerImage(userDir+psr.readData(41, 5));
 		psr.threadSleep();
-		//		psr.scrolling();
-		//		psr.explicitWaitForRegsterButton();
-
-
 		psr.clickOnRegisterButton();
 		psr.swithToPaymentGateWay();
 		psr.enterphNumberForPayment(psr.readIntegerData(42, 5));
 		psr.clickOnProceedButton();
+		psr.threadSleep();
 		psr.clickOnNetBankingPayMent();
+
 		psr.clickOnSbiBank();
 		psr.threadSleep();
 		psr.clickOnPayNowButton();

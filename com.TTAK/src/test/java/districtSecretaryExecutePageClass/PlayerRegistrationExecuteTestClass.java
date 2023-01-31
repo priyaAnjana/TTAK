@@ -17,8 +17,12 @@ public class PlayerRegistrationExecuteTestClass extends BaseClas
 
 {
 	ExcelWriteClass ewc =new ExcelWriteClass();
+	
 	DistrictSecretaryLoginPage dsl;
+	
 	PlayerRegistrationPage prp;
+	
+	String userDir = System.getProperty("user.dir");
 	
 	@BeforeMethod
 	public void beforeMethod() throws IOException
@@ -26,22 +30,20 @@ public class PlayerRegistrationExecuteTestClass extends BaseClas
 		setUp();
 	}
 	
-	@AfterMethod
-	public void afterMethod()
-	{
-		driver.close();
-	}
+	
 	
   @Test
   public void verifyWithPlayerRegistration() throws Exception 
   {
 	  dsl = new DistrictSecretaryLoginPage(driver);
 	  dsl.clickOnSecretaryLogin();
+	  dsl.threadSleepWait();
 	  dsl.enterUserName(dsl.readData(108, 4));
 	  dsl.enterPassword(dsl.readData(108, 5));
 	  dsl.clickOnLoginButton(); 
 	  
 	  prp = new PlayerRegistrationPage(driver);
+	  prp.threadSleep();
 	  prp.clickOnProcessElement(); // click on process menu
 		prp.clickOnPlayerRegistration();// click on player registration
 		
@@ -58,7 +60,7 @@ public class PlayerRegistrationExecuteTestClass extends BaseClas
 		prp.enterMotherName(prp.readData(159, 5));
 		prp.clickOnPlayerImage();// click on player image
 		prp.threadSleep();// waits
-		prp.uploadPlayerImage(prp.readData(160, 5));// method to upload player image
+		prp.uploadPlayerImage(userDir+prp.readData(160, 5));// method to upload player image
 		prp.clickOnPersonalTab();// method to click on personal tab
 		prp.clickOnBloodGroupStatusDropDown();// click on blood status DropDown
 		prp.enterbloodGroup(prp.readData(162, 5));//enter blood group
@@ -81,9 +83,13 @@ public class PlayerRegistrationExecuteTestClass extends BaseClas
 		prp.enterInstitutionAddress(prp.readData(173, 5));// method to enter institution address
 		prp.enterCourse(prp.readData(174, 5));// method to enter course
 		prp.enterPassportNumber(prp.readData(175, 5));// method to enter passport number
+		
 		prp.clickOnPassportDateOfIssue();// method to click on  passport issue  date picker icon 
+//		prp.threadSleep();
 		prp.enterPassportDateOfIssue(prp.readData(176, 5));//method to read passport Date of issue
+//		prp.threadSleep();
 		prp.clickOnPassportDataValidUpTo();// method to click on passport valid up to date picker icon
+		prp.threadSleep();
 		prp.enterPaasportDateValidUpto(prp.readData(177, 5));// method to read passport date of valid up to
 		prp.enterPlaceOfIssue(prp.readData(178, 5));// method to enter place of passport issue 
 		prp.clickOnDocumentTab(); // method to click on documents tab
@@ -92,7 +98,7 @@ public class PlayerRegistrationExecuteTestClass extends BaseClas
 		prp.clickEntertoDocumentsType();// click enter key
 		prp.clickOnFileUpload();// method to click file upload icon
 		prp.threadSleep();// waits
-		prp.uploadFile(prp.readData(182, 5));// method to upload documents
+		prp.uploadFile(userDir+prp.readData(182, 5));// method to upload documents
 		prp.clickOnUpload();// method to click on upload file
 		prp.clickOnSaveButton();// method to click on save button
 		prp.switchToPayMentGateWay();
@@ -104,6 +110,7 @@ public class PlayerRegistrationExecuteTestClass extends BaseClas
 		prp.threadSleep();
 		prp.clickOnPayNowButton();
 		prp.multipleWindoHandlingForPayment();
+		prp.switchToAlertPopUp();
 		
 		boolean successPopUp = prp.isDisplayedSuccessPopUp();
 		
@@ -117,7 +124,14 @@ public class PlayerRegistrationExecuteTestClass extends BaseClas
 		{
 			System.out.println(ewc.setCellData("Fail", 153, 7));
 		}
-		prp.switchToAlertPopUp();
+		
 		prp.clickOnPoupOkButton();
   }
+  
+  
+  @AfterMethod
+	public void afterMethod()
+	{
+		driver.close();
+	}
 }

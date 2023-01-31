@@ -13,36 +13,38 @@ import clubLogin.ClubLoginPage;
 import clubLogin.PlayerRegistrationPage;
 import utility.ExcelWriteClass;
 
-public class PlayerRegistrationPageExecuteTestClass extends BaseClas {
+public class PlayerRegistrationPageExecuteTestClass extends BaseClas 
+{
 	ExcelWriteClass ewc =new ExcelWriteClass();
+
 	ClubLoginPage clp;
+
 	PlayerRegistrationPage prp;
-	
+
+	String userDir = System.getProperty("user.dir");
+
 	@BeforeMethod
 	public void beforeMethod() throws IOException
 	{
 		setUp();
 	}
-	
-	@AfterMethod
-	public void afterMethod()
+
+	@Test(priority = 1)
+	public void verifyClubCanDoPlayerRegistrationOrNot() throws Exception 
 	{
-		driver.close();
-	}
-	
-	@Test
-	public void verifyClubCanDoPlayerRegistrationOrNot() throws Exception {
 
 		clp = new  ClubLoginPage(driver);
 		clp.clickOnClubLogin();
+		clp.threadSleep();
 		clp.enterUserName(clp.readData(114, 4));
 		clp.enterPassword(clp.readData(114, 5));
 		clp.clickOnLoginButton();
 
 		prp = new PlayerRegistrationPage(driver);
-
 		prp.threadSleepWait();
+
 		prp.iframe();
+		prp.threadSleepWait();
 		prp.enterFirstName(prp.readData(120, 5));
 		prp.enterLastName(prp.readData(121, 5));
 		prp.clickOnGenderDropDown();
@@ -54,7 +56,7 @@ public class PlayerRegistrationPageExecuteTestClass extends BaseClas {
 		prp.enterMotherName(prp.readData(125, 5));
 		prp.clickOnPlayerImage();
 		prp.threadSleepWait();
-		prp.uploadPlayerImage(prp.readData(126, 5));
+		prp.uploadPlayerImage(userDir+prp.readData(126, 5));
 		prp.clickOnPersonalTab();
 		prp.clickOnBloodGroupStatusDropDown();
 		prp.enterbloodGroup(prp.readData(128, 5));
@@ -84,7 +86,7 @@ public class PlayerRegistrationPageExecuteTestClass extends BaseClas {
 		prp.clickEntertoDocumentsType();// click enter key
 		prp.clickOnFileUpload();// method to click file upload icon
 		prp.threadSleepWait();// waits
-		prp.uploadFile(prp.readData(146, 5));// method to upload documents
+		prp.uploadFile(userDir+prp.readData(146, 5));// method to upload documents
 		prp.clickOnUpload();// method to click on upload file
 		prp.clickOnSaveButton();// method to click on save button
 		prp.switchToPayMentGateWay();
@@ -98,7 +100,7 @@ public class PlayerRegistrationPageExecuteTestClass extends BaseClas {
 		prp.multipleWindoHandlingForPayment();
 		boolean succcessPoup = prp.isDisplayedsuccessPopUp();
 		Assert.assertTrue(succcessPoup);
-		
+
 		if(succcessPoup)
 		{
 			System.out.println(ewc.setCellData("Pass", 119, 7));
@@ -108,7 +110,13 @@ public class PlayerRegistrationPageExecuteTestClass extends BaseClas {
 			System.out.println(ewc.setCellData("Fail", 119, 7));	
 		}
 		prp.clickOnPoupOkButton();
-}
-	
+	}
+
+	@AfterMethod
+	public void afterMethod()
+	{
+		driver.close();
+	}
+
 }
 

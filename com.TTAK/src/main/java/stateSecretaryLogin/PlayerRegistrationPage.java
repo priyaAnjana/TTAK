@@ -19,13 +19,15 @@ import utility.ExcelReadClass;
 import utility.ExplicitWait;
 import utility.GeneralUtilities;
 
-public class PlayerRegistrationPage {
+public class PlayerRegistrationPage 
+{
 
 	WebDriver driver;
+	
 	GeneralUtilities gl= new GeneralUtilities();
-
-
+	
 	ExcelReadClass erc = new ExcelReadClass();
+	
 	ExplicitWait ew = new ExplicitWait();
 
 	// to mention base class and page class driver are same
@@ -36,6 +38,7 @@ public class PlayerRegistrationPage {
 	}
 
 	@FindBy(xpath = "(//span[@class='fa arrow'])[2]") // Process menu locator
+//	@FindBy(xpath ="(//span[@class='nav-label'])[2]")
 	WebElement process;
 
 
@@ -221,6 +224,7 @@ public class PlayerRegistrationPage {
 		gl.clickElement(playerRegistration);
 
 	}
+	
 	public void iframe()// method to switch to iframe
 	{
 		driver.switchTo().frame(iframe);
@@ -312,7 +316,8 @@ public class PlayerRegistrationPage {
 	// method to upload player image
 	public void uploadPlayerImage(String image) throws AWTException
 	{
-		gl.robortCalssForFileUploading(image);
+		gl.robotCalssForFileUploading(image);	
+		
 	}
 
 	// method click on personal tab
@@ -480,8 +485,6 @@ public class PlayerRegistrationPage {
 	{
 		gl.javascriptExecutorForDatePicker(driver, passportDateValiUpTo, date);
 	}
-
-
 	// method to enter place of birth
 
 	public void enterPlaceOfIssue(String place)
@@ -494,14 +497,17 @@ public class PlayerRegistrationPage {
 	{
 		gl.clickElement(documentsTab);
 	}
+	
 	public void clickOnDocumentsTypeDropDown()
 	{
 		gl.clickElement(documentsTypeDropdown);
 	}
+	
 	public void enterDocument(String doc)
 	{
 		gl.typeText(documentsTypeDropDownTextField, doc);
 	}
+	
 	public void clickEntertoDocumentsType()
 	{
 		gl.clickEnterkeys(documentsTypeDropDownTextField);
@@ -517,7 +523,7 @@ public class PlayerRegistrationPage {
 
 	public void uploadFile(String file) throws Exception
 	{
-		gl.robortCalssForFileUploading(file);
+		gl.robotCalssForFileUploading(file);
 	}
 	// method to click on upload icon
 
@@ -558,6 +564,7 @@ public class PlayerRegistrationPage {
 	{
 		return gl.isDisplayedMethod(successfullyRegister);
 	}
+	
 	public void clickOnPlayerListButton()
 	{
 		gl.clickElement(playerListButton);
@@ -568,7 +575,6 @@ public class PlayerRegistrationPage {
 		gl.typeText(playerNameSearchField, name);
 	}
 
-
 	public void clickEnterKey()
 	{
 		gl.clickEnterkeys(playerNameSearchField);
@@ -578,10 +584,12 @@ public class PlayerRegistrationPage {
 	{
 		gl.clickElement(editButton);
 	}
+	
 	public void threadSleepWait() throws InterruptedException
 	{
 		gl.threadSleepWait();
 	}
+	
 	public void waitsForFrame()
 	{
 		ew.waitVisibilityOfElementLocated(driver, iframe);
@@ -591,6 +599,7 @@ public class PlayerRegistrationPage {
 	{
 		gl.clearFields(firstName);
 	}
+	
 	public void clearLastName()
 	{
 		gl.clearFields(lastName);
@@ -600,6 +609,7 @@ public class PlayerRegistrationPage {
 	{
 		gl.clearFields(fatherName);
 	}
+	
 	public void clearMotherName()
 	{
 		gl.clearFields(motherName);
@@ -609,54 +619,67 @@ public class PlayerRegistrationPage {
 	{
 		gl.clearFields(residenceAddress);
 	}
+	
 	public void clearContactsNo1()
 	{
 		gl.clearFields(contactNumber1);
 	}
+	
 	public void clearContactsNo2()
 	{
 		gl.clearFields(contactNUmber2);
 	}
+	
 	public void clearEmailId()
 	{
 		gl.clearFields(emailId);
 	}
+	
 	public void clearAdharNumber()
 	{
 		gl.clearFields(adharNumber);
 	}
+	
 	public void clearPlaceOfBirth()
 	{
 		gl.clearFields(placeOfBirth);
 	}
+	
 	public void clearInstitutionName()
 	{
 		gl.clearFields(institutionName);
 	}
+	
 	public void clearInstitutionAddress()
 	{
 		gl.clearFields(institutionAddress);
 	}
+	
 	public void clearCourse()
 	{
 		gl.clearFields(course);
 	}
+	
 	public void clearPassportNumber()
 	{
 		gl.clearFields(passportNumber);
 	}
+	
 	public void clearPlaceOfIssue()
 	{
 		gl.clearFields(placeOfIssue);
 	}
+	
 	public void deleteDocument()
 	{
 		gl.clickElement(documentsDeleteButton);
 	}
+	
 	public void clickOnDocumentDeleteYesButton()
 	{
 		gl.clickElement(documentDeleteYesButton);
 	}
+	
 	public void deletePlayerUpdatedPlayer()
 	{
 		gl.clickElement(playerPriyadeleteButton);

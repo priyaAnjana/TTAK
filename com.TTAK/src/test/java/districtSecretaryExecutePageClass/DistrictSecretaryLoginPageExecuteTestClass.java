@@ -11,9 +11,11 @@ import baseClass.BaseClas;
 import districtSecretaryLogin.DistrictSecretaryLoginPage;
 import utility.ExcelWriteClass;
 
-public class DistrictSecretaryLoginPageExecuteTestClass extends BaseClas {
+public class DistrictSecretaryLoginPageExecuteTestClass extends BaseClas 
+{
 	
 	ExcelWriteClass ewc =new ExcelWriteClass();
+	
 	DistrictSecretaryLoginPage dsl;
 	
 	@BeforeMethod
@@ -22,20 +24,18 @@ public class DistrictSecretaryLoginPageExecuteTestClass extends BaseClas {
 		setUp();
 	}
 	
-	@AfterMethod
-	public void afterMethod()
-	{
-		driver.close();
-	}
+	
 	
   @Test(priority = 1)
   public void verifywithSuccessfulLogin() throws Exception 
   {
 	  dsl = new DistrictSecretaryLoginPage(driver);
 	  dsl.clickOnSecretaryLogin();
+	  dsl.threadSleepWait();
 	  dsl.enterUserName(dsl.readData(108, 4));
 	  dsl.enterPassword(dsl.readData(108, 5));
 	  dsl.clickOnLoginButton();
+	  
 	  
 	  boolean tvmSec = dsl.tvmSecText();
 	  System.out.println(tvmSec);
@@ -49,6 +49,7 @@ public class DistrictSecretaryLoginPageExecuteTestClass extends BaseClas {
 	  {
 		  System.out.println(ewc.setCellData("Fail", 107, 7)); 
 	  }
+	 
   }
   
   @Test(priority = 2)
@@ -57,10 +58,11 @@ public class DistrictSecretaryLoginPageExecuteTestClass extends BaseClas {
 
 	  dsl = new DistrictSecretaryLoginPage(driver);
 	  dsl.clickOnSecretaryLogin();
+	  dsl.threadSleepWait();
 	  dsl.enterUserName(dsl.readData(109, 4));
 	  dsl.enterPassword(dsl.readData(109, 5));
 	  dsl.clickOnLoginButton();
-	  
+	  dsl.threadSleepWait();
 	  boolean invlidMsg = dsl.alertMsg();
 	  Assert.assertTrue(invlidMsg);
 	  
@@ -81,9 +83,11 @@ public class DistrictSecretaryLoginPageExecuteTestClass extends BaseClas {
 
 	  dsl = new DistrictSecretaryLoginPage(driver);
 	  dsl.clickOnSecretaryLogin();
+	  dsl.threadSleepWait();
 	  dsl.enterUserName(dsl.readData(110, 4));
 	  dsl.enterPassword(dsl.readData(110, 5));
 	  dsl.clickOnLoginButton();
+	  dsl.threadSleepWait();
 	  
 	  boolean invlidMsg = dsl.alertMsg();
 	  Assert.assertTrue(invlidMsg);
@@ -105,9 +109,11 @@ public class DistrictSecretaryLoginPageExecuteTestClass extends BaseClas {
 
 	  dsl = new DistrictSecretaryLoginPage(driver);
 	  dsl.clickOnSecretaryLogin();
+	  dsl.threadSleepWait();
 	  dsl.enterUserName(dsl.readData(111, 4));
 	  dsl.enterPassword(dsl.readData(111, 5));
 	  dsl.clickOnLoginButton();
+	  dsl.threadSleepWait();
 	  
 	  boolean invlidMsg = dsl.alertMsg();
 	  Assert.assertTrue(invlidMsg);
@@ -122,6 +128,12 @@ public class DistrictSecretaryLoginPageExecuteTestClass extends BaseClas {
 	  }
 	
 	  }
+  
+  @AfterMethod
+	public void afterMethod()
+	{
+		driver.close();
+	}
   
   }
 

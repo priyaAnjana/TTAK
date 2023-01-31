@@ -40,8 +40,8 @@ public class ExcelReadClass {
 			s = b.getSheet("sheet1");
 			Row r = s.getRow(i);
 			Cell c= r.getCell(j);
-			 DataFormatter formatter = new DataFormatter();
-             String cellData = formatter.formatCellValue(c);
+//			 DataFormatter formatter = new DataFormatter();
+//             String cellData = formatter.formatCellValue(c);
 			return c.getStringCellValue();
 			
 			

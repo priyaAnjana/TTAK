@@ -5,8 +5,10 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.math3.ode.events.EventHandler.Action;
@@ -17,7 +19,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-public class GeneralUtilities {
+public class GeneralUtilities 
+{
 
 	public void clickElement(WebElement element) // method to click an element
 	{
@@ -28,6 +31,8 @@ public class GeneralUtilities {
 	{
 		return element.getText();
 	}
+	
+	
 
 	public void typeText(WebElement element, String text) // method to input data
 	{
@@ -38,9 +43,6 @@ public class GeneralUtilities {
 	{
 		return driver.getCurrentUrl();
 	}
-
-
-
 
 	// method to select value from a drop down
 	public void dropdownSelectByIndex(WebElement element, int index)
@@ -62,12 +64,11 @@ public class GeneralUtilities {
 		JavascriptExecutor js= (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView();", element);
 
-
 	}
 
 	// robot class method to upload a file
 
-	public void robortCalssForFileUploading(String path) throws AWTException
+	public void robotCalssForFileUploading(String path) throws AWTException
 	{
 		Robot rb = new Robot();
 
@@ -90,10 +91,14 @@ public class GeneralUtilities {
 		JavascriptExecutor js= (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].setAttribute('value','"+date+"');", element);
 	}
-
 	// method to click alert msg
 
+	public void javascriptExecutorForRemoveReadonlyDatePicker(WebDriver driver, WebElement element) 
+	{
 
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].removeAttribute('readonly',0);", element);
+	}
 
 	public void javaScriptExecutorForClick(WebDriver driver,WebElement element)
 	{
@@ -110,33 +115,58 @@ public class GeneralUtilities {
 	{
 		driver.switchTo().defaultContent();
 	}
-	public void actionClassToClikEnter(WebDriver driver,WebElement element )
+	public void actionClassToClick(WebDriver driver,WebElement element )
 	{
 		Actions action = new Actions(driver);
 		action.click(element).build().perform();
+		
 	}
+	
 	public void clickEnterkeys(WebElement element)
 	{
 		element.sendKeys(Keys.ENTER);
 	}
+	
 	public void threadSleepWait() throws InterruptedException
 	{
 		Thread.sleep(5000);
 	}
+	
 	public void clearFields(WebElement element)
 	{
 		element.clear();
 	}
 	
-	public void selectClass(WebElement element,String text)
+	public void selectClassByVisibleText(WebElement element,String text)
 	{
 		Select select = new Select(element);
 		select.selectByVisibleText(text);
 	}
 	
+	public void actionClassToClickDownArrow(WebDriver driver,WebElement element )
+	{
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.ARROW_DOWN).build().perform();
+	}
+	
+	public void actionClassToClickEsc(WebDriver driver )
+	{
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.ESCAPE).build().perform();
+	}	
+	
+	public boolean isEnabledMethod(WebElement element)
+	{
+		return element.isEnabled();
+	}
+	
 	
 	
 	}
+
+	
+	
+	
 
 
 

@@ -34,7 +34,7 @@ public class ExplicitWait {
 
 	public void waitElementToBEClickable(WebDriver driver,WebElement element)
 	{
-		w= new WebDriverWait(driver,Duration.ofSeconds(30));
+		w= new WebDriverWait(driver,Duration.ofSeconds(50));
 		w.until(ExpectedConditions.elementToBeClickable(element));
 
 
@@ -48,7 +48,7 @@ public class ExplicitWait {
 	
 	public void waitVisibilityOfElementLocated(WebDriver driver,WebElement element)
 	{
-		w= new WebDriverWait(driver,Duration.ofSeconds(50));
+		w= new WebDriverWait(driver,Duration.ofSeconds(100));
 		w.until(ExpectedConditions.visibilityOf(element));
 	}
 }

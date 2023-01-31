@@ -14,10 +14,11 @@ import utility.GeneralUtilities;
 public class PlayerApprovalPage 
 {
 	WebDriver driver;
+	
 	GeneralUtilities gl= new GeneralUtilities();
 
-
 	ExcelReadClass erc = new ExcelReadClass();
+	
 	ExplicitWait ew = new ExplicitWait();
 
 	// to mention base class and page class driver are same
@@ -35,6 +36,22 @@ public class PlayerApprovalPage
 
 	@FindBy(xpath= "//iframe[@id='framecontent']")
 	WebElement iframe;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@FindBy(id = "gs_PlayerName")
 	WebElement playerNameSearchField;
@@ -44,6 +61,9 @@ public class PlayerApprovalPage
 	
 	@FindBy(xpath = "//*[@id=\"PlayerMaster\"]/div/div/div[1]/span")
 	WebElement playerRegistrationText;
+	
+	@FindBy(id = "btnBack")
+	WebElement backButton;
 	
 	@FindBy(xpath = "//*[@id=\"1\"]/td[1]")
 	WebElement checkBox;
@@ -60,16 +80,19 @@ public class PlayerApprovalPage
 	@FindBy(xpath = "//button[@class='confirm']")
 	WebElement popUpOkButton;
 	
+	@FindBy(xpath = "//a[@class='logout-btn']")
+	WebElement logOutButton;
+	
 	
 	public String readData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readStringData(r, c);
 	}
+	
 	public String readIntegerData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readIntegerData(r, c);
 	}
-
 
 	public void clickOnManage()
 	{
@@ -106,6 +129,11 @@ public class PlayerApprovalPage
 		return gl.isDisplayedMethod(playerRegistrationText);
 	}
 	
+	public void clickONBackButton()
+	{
+		gl.clickElement(backButton);
+	}
+	
 	public void clickOnCheckBox()
 	{
 		gl.clickElement(checkBox);
@@ -125,12 +153,19 @@ public class PlayerApprovalPage
 	{
 		gl.clickElement(yesButton);
 	}
+	
 	public boolean appovedSuccessFulPopUpMsg()
 	{
 		return gl.isDisplayedMethod(approvedSuccessPopUpMsg);
 	}
+	
 	public void clickOnPopUpOkButton()
 	{
 		gl.clickElement(popUpOkButton);
+	}
+	
+	public void clickOnLogOutButton()
+	{
+		gl.clickElement(logOutButton);
 	}
 }

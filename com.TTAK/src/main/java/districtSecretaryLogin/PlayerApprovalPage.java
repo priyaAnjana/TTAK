@@ -11,12 +11,15 @@ import utility.ExcelReadClass;
 import utility.ExplicitWait;
 import utility.GeneralUtilities;
 
-public class PlayerApprovalPage {
+public class PlayerApprovalPage 
+
+{
 	WebDriver driver;
+	
 	GeneralUtilities gl= new GeneralUtilities();
-
-
+	
 	ExcelReadClass erc = new ExcelReadClass();
+	
 	ExplicitWait ew = new ExplicitWait();
 
 	// to mention base class and page class driver are same
@@ -26,7 +29,7 @@ public class PlayerApprovalPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "(//span[@class='fa arrow'])[3]")
+	@FindBy(xpath = "(//span[@class='nav-label'])[3]")
 	WebElement manage;
 
 	@FindBy(id = "10004_sub_module_id")
@@ -64,6 +67,7 @@ public class PlayerApprovalPage {
 	{
 		return erc.readStringData(r, c);
 	}
+	
 	public String readIntegerData(int r, int c) throws IOException // method to read user name from excel sheet
 	{
 		return erc.readIntegerData(r, c);
@@ -124,10 +128,12 @@ public class PlayerApprovalPage {
 	{
 		gl.clickElement(yesButton);
 	}
+	
 	public boolean appovedSuccessFulPopUpMsg()
 	{
 		return gl.isDisplayedMethod(approvedSuccessPopUpMsg);
 	}
+	
 	public void clickOnPopUpOkButton()
 	{
 		gl.clickElement(popUpOkButton);

@@ -15,7 +15,9 @@ import utility.ExcelWriteClass;
 public class PlayerApprovalExecuteTestClass extends BaseClas {
 
 	StateSecretaryLoginPage ssl;
+	
 	PlayerApprovalPage pap;
+	
 	ExcelWriteClass ewc =new ExcelWriteClass();
 
 	@BeforeMethod
@@ -25,11 +27,7 @@ public class PlayerApprovalExecuteTestClass extends BaseClas {
 		setUp();
 	}
 	
-	@AfterMethod
-	public void afterMethod()
-	{
-		driver.close();
-	}
+	
 
 	@Test(priority = 1)
 	public void verifyWithSelfRegisterdMoreInfo() throws Exception
@@ -37,12 +35,13 @@ public class PlayerApprovalExecuteTestClass extends BaseClas {
 
 		ssl = new StateSecretaryLoginPage(driver);
 		ssl.clickOnSecretaryLogin();
-		ssl.waitsForUserName();
+		ssl.threadSleep();
 		ssl.enterUserName(ssl.readData(4, 4)); // read username from excel
 		ssl.enterPassword(ssl.readData(4, 5));// read password from excel
 		ssl.clickOnLoginButton();
 
 		pap = new PlayerApprovalPage(driver) ;
+		pap.threadSleep();
 		pap.clickOnManage();
 		pap.clickOnPlayerApproval();
 		pap.iframe();
@@ -69,12 +68,13 @@ public class PlayerApprovalExecuteTestClass extends BaseClas {
 	{
 		ssl = new StateSecretaryLoginPage(driver);
 		ssl.clickOnSecretaryLogin();
-		ssl.waitsForUserName();
+		ssl.threadSleep();
 		ssl.enterUserName(ssl.readData(4, 4)); // read username from excel
 		ssl.enterPassword(ssl.readData(4, 5));// read password from excel
 		ssl.clickOnLoginButton();
 
 		pap = new PlayerApprovalPage(driver) ;
+		pap.threadSleep();
 		pap.clickOnManage();
 		pap.clickOnPlayerApproval();
 		pap.iframe();
@@ -102,17 +102,18 @@ public class PlayerApprovalExecuteTestClass extends BaseClas {
 		
 	}
 
-	@Test
+	@Test(priority = 3)
 	public void verifyWithClubRegisterdPlayerApproval() throws Exception
 	{
 		ssl = new StateSecretaryLoginPage(driver);
 		ssl.clickOnSecretaryLogin();
-		ssl.waitsForUserName();
+		ssl.threadSleep();
 		ssl.enterUserName(ssl.readData(4, 4)); // read username from excel
 		ssl.enterPassword(ssl.readData(4, 5));// read password from excel
 		ssl.clickOnLoginButton();
 
 		pap = new PlayerApprovalPage(driver) ;
+		pap.threadSleep();
 		pap.clickOnManage();
 		pap.clickOnPlayerApproval();
 		pap.iframe();
@@ -140,17 +141,18 @@ public class PlayerApprovalExecuteTestClass extends BaseClas {
 		
 	}
 	
-	@Test
+	@Test(priority = 4)
 	public void verifyWithDistrictSecretaryRegisterdPlayerApproval() throws Exception
 	{
 		ssl = new StateSecretaryLoginPage(driver);
 		ssl.clickOnSecretaryLogin();
-		ssl.waitsForUserName();
+		ssl.threadSleep();
 		ssl.enterUserName(ssl.readData(4, 4)); // read username from excel
 		ssl.enterPassword(ssl.readData(4, 5));// read password from excel
 		ssl.clickOnLoginButton();
 
 		pap = new PlayerApprovalPage(driver) ;
+		pap.threadSleep();
 		pap.clickOnManage();
 		pap.clickOnPlayerApproval();
 		pap.iframe();
@@ -176,6 +178,12 @@ public class PlayerApprovalExecuteTestClass extends BaseClas {
 		
 		pap.clickOnPopUpOkButton();
 		
+	}
+	
+	@AfterMethod
+	public void afterMethod()
+	{
+		driver.close();
 	}
 	
 }
